@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ILD Case Scenarios MCQs Full QA — interactive</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2337536E'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial' font-weight='bold' fill='%23FFD21F' text-anchor='middle'%3EILD%3C/text%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   ILD Case Scenarios MCQs — interactive study file
+   Pure white background · blue-gradient choices · yellow hover rim
+   No ambient animation: every motion is triggered by a user action.
+   ============================================================ */
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  /* the one and only choice colour (shared with buttons & highlights) */
+  --choice-grad:linear-gradient(180deg,#37536E 0%,#294056 100%);
+  --choice-dark:linear-gradient(180deg,#2C4459 0%,#1E3145 100%); /* default = darker */
+  --blue-solid:#294056;
+  --hl-grad:linear-gradient(180deg,#37536E 0%,#294056 100%);
+  --yellow:#FFD21F;
+  --grey:#9AA3AF;
+  --grey-dark:#6E7887;
+  --green:#16A34A;
+  --green-dark:#0E7A36;
+  --red:#C2261F;
+  --red-dark:#93190F;
+  --ink:#15181D;
+  --line:#E6EAF1;
+  --t1:#6A4BB8;   /* Case Scenario 1 theme */
+  --t2:#0E7490;   /* Case Scenario 2 theme */
+}
+html,body{margin:0;padding:0}
+body{
+  background:#ffffff;                     /* PURE WHITE background only */
+  color:var(--ink);
+  font-family:"Segoe UI",Tahoma,"Trebuchet MS",Verdana,system-ui,-apple-system,sans-serif;
+  font-size:16.5px;line-height:1.55;overflow-x:hidden;
+}
+::selection{background:#FFE680;color:#111}
+img,svg{max-width:100%}
+
+/* ======================== page shell ======================== */
+#page{max-width:1010px;margin:0 auto;padding:26px 92px 120px 96px}
+
+/* ======================== case scenario card ======================== */
+.case{
+  margin:26px 0 14px;padding:14px 18px 15px;border-radius:16px;background:#fff;
+  border:2px solid var(--cl);border-left-width:9px;
+  box-shadow:0 3px 0 rgba(0,0,0,.05);
+}
+.case h2{margin:0 0 8px;font-size:19px;letter-spacing:.2px;color:var(--cl)}
+.case ul{margin:0;padding-left:20px}
+.case li{margin:3px 0;font-size:16px}
+.case li::marker{color:var(--cl)}
+
+/* ============ AI notes shown after the answer (layout of the example file) ============ */
+.ainote{
+  margin-top:10px;padding:10px 13px;border-radius:12px;background:#f4f7fb;
+  border:1.5px solid #d5e0ea;color:#1f2d3a;font-weight:600;font-size:14.2px;line-height:1.65
+}
+.ainote.show{animation:pop .16s ease-out 1}
+.ainote > b{color:#294056;margin-right:4px}
+.ainote .apts{margin:7px 0 1px;padding:0;list-style:none}
+.ainote .apts li{position:relative;padding-left:17px;margin:5px 0;font-weight:600;line-height:1.6}
+.ainote .apts li:before{content:"";position:absolute;left:2px;top:.55em;width:6px;height:6px;border-radius:50%;
+  background:linear-gradient(180deg,#37536E,#294056);box-shadow:0 0 0 2px var(--yellow),0 0 0 4.5px rgba(255,210,31,.22)}
+.ainote .w1{cursor:pointer;border-radius:5px;padding:0 1px}
+.ainote .w1:hover{box-shadow:0 0 0 2px var(--yellow),0 0 0 5px rgba(255,210,31,.26)}
+.ainote .w1.kwb{background:var(--hl-grad);color:#fff;font-weight:800;padding:0 3px}
+.ainote .w1.mk{background:var(--hl-grad)!important;color:#fff!important;font-weight:800}
+.ainote .wnotes{margin:9px 0 2px;padding:8px 11px;border-radius:10px;background:#fff;border:1.5px dashed #c9d6e4}
+.ainote .wsub{font-size:11.2px;font-weight:900;letter-spacing:.4px;text-transform:uppercase;color:#0E7490;margin-bottom:3px}
+.ainote .wul.tips{margin:0;padding:0;list-style:none}
+.ainote .wmnem{margin-top:9px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.ainote .wmnem b{flex:0 0 auto;background:var(--choice-grad);color:#fff;border-radius:999px;
+  padding:3px 10px;font-size:12px;font-weight:900}
+.ainote .wmnem b:hover{box-shadow:0 0 0 3px var(--yellow)}
+.ainote .mntxt{font-weight:800;color:#15181D;background:#fff5cc;border-radius:6px;padding:1px 5px;border:1.5px solid #f0d97a}
+.ainote .mntxt:hover{box-shadow:0 0 0 3px var(--yellow)}
+.ainote .wfile{margin-top:8px;font-size:13.4px;font-weight:800;color:#3A4250}
+.ainote .wfile:before{content:"\1F4C4";margin-right:5px}
+.ainote .flblock{margin-top:8px;border-top:1.5px dashed #d5e0ea;padding-top:7px}
+.ainote .flblock > b{display:block;font-size:11.2px;letter-spacing:.4px;text-transform:uppercase;color:#6E7887;margin-bottom:5px}
+.ainote .flhint{font-size:11px;font-weight:700;color:#6E7887;margin:-2px 0 5px}
+.ainote .flist2{display:flex;flex-direction:column;gap:4px}
+.ainote .fli2{display:flex;gap:7px;align-items:flex-start;font-size:12.6px;color:#3A4250}
+.ainote .flp{flex:0 0 auto;background:#E9EDF3;color:#294056;border-radius:6px;padding:1px 7px;font-weight:900;font-size:11.4px}
+.ainote .fltxt2{font-weight:600}
+.ainote .fli2:hover{box-shadow:0 0 0 3px var(--yellow);border-radius:5px}
+
+/* ======================== question card ======================== */
+.q{
+  background:#fff;border:2px solid var(--cl);border-radius:18px;
+  padding:14px 18px 16px;margin:16px 0;
+  box-shadow:0 2px 0 rgba(0,0,0,.05);
+  scroll-margin-top:70px;position:relative;
+}
+.q.hit{box-shadow:0 0 0 4px var(--yellow),0 2px 0 rgba(0,0,0,.05)}
+.qhead{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.qnum{
+  display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 8px;
+  border-radius:9px;background:var(--cl);color:#fff;font-weight:800;font-size:15px;
+  box-shadow:0 2px 0 rgba(0,0,0,.12)
+}
+.qtag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;
+  color:#fff;background:var(--choice-grad);border:1.5px solid rgba(255,255,255,.2);
+  border-radius:999px;padding:4px 11px
+}
+.qtag:hover{box-shadow:0 0 0 3px var(--yellow),0 0 0 7px rgba(255,210,31,.26)}
+.qtag i{width:9px;height:9px;border-radius:50%;background:var(--cl);display:inline-block;flex:0 0 auto}
+.qtext{margin:2px 0 11px;font-size:18px;font-weight:650;line-height:1.62}
+.qtext .w1{cursor:pointer;border-radius:5px;padding:0 1px}
+.qtext .w1:hover{box-shadow:0 0 0 3px var(--yellow)}
+.w1.mk{
+  background:var(--hl-grad)!important;color:#fff!important;border-radius:5px;padding:0 3px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.35) inset
+}
+.w1.mk:hover{box-shadow:0 0 0 3px var(--yellow)}
+
+/* ======================== choices ======================== */
+.opts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.opt{
+  position:relative;display:flex;align-items:center;gap:10px;
+  background:var(--choice-dark);color:#fff;border:1.5px solid rgba(255,255,255,.16);
+  border-radius:13px;padding:10px 12px 10px 11px;cursor:pointer;
+  transition:filter .13s ease,box-shadow .13s ease,background .16s ease,opacity .2s ease;
+  filter:brightness(.94)
+}
+.opt:hover{filter:brightness(1.3);box-shadow:0 0 0 3px var(--yellow),0 0 0 7px rgba(255,210,31,.28)}
+.opt .ltr{
+  flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.17);border:1.5px solid rgba(255,255,255,.45);font-weight:800;font-size:14px
+}
+.opt .txt{flex:1 1 auto;font-size:15.6px;line-height:1.4}
+.opt .xbtn{
+  flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:1.5px solid rgba(255,255,255,.5);
+  background:rgba(255,255,255,.14);color:#fff;font-weight:800;font-size:15px;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0
+}
+.opt .xbtn:hover{box-shadow:0 0 0 3px var(--yellow)}
+/* excluded choice */
+.opt.ex{background:#0A0B0D;border-color:#0A0B0D;filter:none;text-decoration:line-through;text-decoration-thickness:2px;opacity:.92}
+.opt.ex .txt{opacity:.85}
+.opt.ex .xbtn{background:#FFD21F;color:#0A0B0D;border-color:#FFD21F;text-decoration:none;font-size:14px}
+.opt.ex .xbtn:hover{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--yellow)}
+.opt.ex .ltr{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.3)}
+/* answered states (locked forever) */
+.opt.locked{cursor:default}
+.opt.locked:hover{filter:brightness(1.02)}
+.opt.pick-ok{background:linear-gradient(180deg,#1EB959 0%,#0E7A36 100%);border-color:#0B6330}
+.opt.pick-no{background:linear-gradient(180deg,#D93A32 0%,#A81E15 100%);border-color:#8E1A12}
+.opt.pick-no:hover{box-shadow:0 0 0 3px var(--yellow)}
+.opt.reveal{background:linear-gradient(180deg,#1EB959 0%,#0E7A36 100%);border-color:#0B6330}
+.opt.dim{opacity:.5}
+.opt.dim:hover{filter:brightness(1);box-shadow:0 0 0 3px rgba(255,210,31,.5)}
+.opt .tagx{
+  flex:0 0 auto;font-size:11px;font-weight:800;background:rgba(255,255,255,.2);
+  border-radius:999px;padding:2px 8px;letter-spacing:.3px
+}
+.opt.pick-no .tagx{background:rgba(0,0,0,.25)}
+.opt.pick-ok .tagx{background:rgba(0,0,0,.22)}
+
+/* ======================== question footer ======================== */
+.qfoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{
+  font-family:inherit;font-size:12.6px;font-weight:800;color:#fff;
+  background:var(--choice-grad);border:1.5px solid rgba(255,255,255,.18);
+  border-radius:999px;padding:7px 13px;cursor:pointer;
+  transition:filter .13s ease,box-shadow .13s ease;filter:brightness(.96)
+}
+.btn:hover{filter:brightness(1.28);box-shadow:0 0 0 3px var(--yellow),0 0 0 7px rgba(255,210,31,.26)}
+.btn.check{background:linear-gradient(180deg,#37536E 0%,#294056 100%)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;filter:none}
+.verdict{
+  font-size:12.8px;font-weight:900;border-radius:999px;padding:5px 12px;display:none
+}
+.verdict.ok{display:inline-block;background:#E7F7ED;color:var(--green-dark);border:1.5px solid var(--green)}
+.verdict.no{display:inline-block;background:#FDECEA;color:var(--red-dark);border:1.5px solid var(--red)}
+.verdict.multi{display:inline-block;background:#EEF1F7;color:var(--blue-solid);border:1.5px solid var(--blue-solid)}
+.note{
+  margin-top:11px;border-left:7px solid var(--cl);background:#F8FAFD;border-radius:10px;
+  padding:9px 12px;font-size:14.6px;color:#22272E
+}
+.note b{color:var(--cl)}
+.lockedmsg{margin-top:10px;font-size:12.4px;font-weight:800;color:var(--grey-dark);display:none}
+.lockedmsg.on{display:block}
+.lockedmsg b{color:var(--blue-solid)}
+
+/* ======================== LEFT rail : question task bar ======================== */
+#rail{
+  position:fixed;left:6px;top:50%;transform:translateY(-50%);z-index:900;
+  display:flex;flex-direction:column;gap:4px;align-items:center;
+  max-height:74vh;overflow-y:auto;overflow-x:hidden;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(4px);
+  border:1.5px solid var(--line);border-radius:13px;padding:5px 5px;
+  box-shadow:0 6px 18px rgba(15,25,50,.10);scrollbar-width:thin
+}
+#rail::-webkit-scrollbar{width:5px}
+#rail::-webkit-scrollbar-thumb{background:#C6CDD8;border-radius:5px}
+.nb{
+  width:27px;height:27px;flex:0 0 auto;border:0;border-radius:8px;cursor:pointer;
+  background:var(--grey);color:#fff;font-weight:800;font-size:12px;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 1px 0 rgba(0,0,0,.12);transition:filter .12s ease,box-shadow .12s ease
+}
+.nb:hover{filter:brightness(1.15);box-shadow:0 0 0 3px var(--yellow)}
+.nb.ok{background:var(--green)}
+.nb.no{background:var(--red);box-shadow:0 0 0 2px #0A0B0D}   /* black rim = 'come back to this one' */
+.nb.dot{border:2px solid var(--cl)}
+.nb.cur{outline:2.5px solid var(--ink);outline-offset:1px}
+.railsep{width:22px;height:3px;border-radius:3px;margin:3px 0;background:var(--sc,#D6DCE5)}
+#railtoggle{
+  position:relative;width:22px;height:20px;border:0;border-radius:6px;background:#E9EDF3;color:#5B6472;
+  font-size:10px;font-weight:900;cursor:pointer;padding:0;font-family:inherit;line-height:1
+}
+#railtoggle .rcount{
+  position:absolute;top:-6px;right:-6px;min-width:15px;height:15px;border-radius:999px;
+  background:var(--red);color:#fff;font-size:9.5px;font-weight:900;display:flex;align-items:center;
+  justify-content:center;padding:0 3px;border:1px solid #fff
+}
+.nb.hid{opacity:.28;outline:1.5px dashed #C6CDD8;outline-offset:1px}
+#railtoggle:hover{box-shadow:0 0 0 3px var(--yellow)}
+#rail.mini .nb,#rail.mini .railsep{display:none}
+
+/* ======================== RIGHT side : index / search / reset / wrongs ======================== */
+.rbtn{
+  position:fixed;right:6px;z-index:930;width:30px;height:30px;border:0;border-radius:9px;cursor:pointer;
+  color:#fff;font-size:14px;font-family:inherit;font-weight:800;
+  display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 3px 10px rgba(15,25,50,.20);transition:filter .12s ease,box-shadow .12s ease
+}
+.rbtn:hover{filter:brightness(1.25);box-shadow:0 0 0 3px var(--yellow),0 0 0 7px rgba(255,210,31,.26)}
+#idxbtn{top:8px;background:linear-gradient(135deg,#7C4DFF,#5230B8)}
+#searchbtn{top:44px;background:linear-gradient(135deg,#00B4D8,#0B6E99)}
+#resetbtn{top:44%;background:linear-gradient(135deg,#5C6B7F,#33404F);width:32px;height:32px;font-size:15px}
+#wrongbtn{top:60%;background:#0A0B0D;width:32px;height:32px;position:fixed}
+#wrongbtn .wcount{
+  position:absolute;top:-5px;right:-5px;min-width:15px;height:15px;border-radius:999px;
+  background:var(--yellow);color:#111;font-size:9.5px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;padding:0 3px;border:1px solid #fff
+}
+.panel{
+  position:fixed;z-index:940;right:44px;background:#fff;border:2px solid var(--line);
+  border-radius:15px;box-shadow:0 14px 36px rgba(15,25,50,.20);padding:9px 10px;
+  display:none;overflow-y:auto;scrollbar-width:thin
+}
+.panel.show{display:block}
+.panel::-webkit-scrollbar{width:6px}
+.panel::-webkit-scrollbar-thumb{background:#C6CDD8;border-radius:6px}
+.panel h4{margin:2px 2px 7px;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:#5B6472}
+#idxpanel{top:8px;width:min(330px,90vw);max-height:76vh}
+#idxpanel .grp{margin:8px 0 4px;font-size:12.5px;font-weight:900;color:var(--cl);
+  border-left:5px solid var(--cl);padding-left:7px;border-radius:3px}
+#idxpanel .qrow{
+  display:flex;gap:7px;align-items:flex-start;width:100%;text-align:left;cursor:pointer;
+  background:#fff;border:1.5px solid #EDF1F7;border-radius:9px;padding:5px 7px;margin:3px 0;
+  font-family:inherit;font-size:13px;color:#20242B
+}
+#idxpanel .qrow:hover{box-shadow:0 0 0 3px var(--yellow);border-color:#DFE6F0}
+#idxpanel .qrow .n{font-weight:900;color:var(--grey-dark);min-width:20px}
+#idxpanel .qrow.st-ok .n{color:var(--green)}
+#idxpanel .qrow.st-no .n{color:var(--red)}
+#searchpanel{top:44px;width:min(360px,92vw);max-height:74vh}
+#searchpanel input{
+  width:100%;font-family:inherit;font-size:13.5px;padding:7px 9px;border-radius:10px;
+  border:1.5px solid #DFE6F0;outline:0;margin-bottom:7px;font-weight:700;color:#15181C
+}
+#searchpanel input:focus{border-color:#00B4D8;box-shadow:0 0 0 3px rgba(0,180,216,.18)}
+.kw{
+  display:flex;align-items:center;gap:7px;width:100%;text-align:left;cursor:pointer;
+  background:#F7F9FC;border:1.5px solid #E8EDF5;border-radius:10px;padding:6px 8px;margin:4px 0;
+  font-family:inherit;font-size:12.9px;font-weight:700;color:#22262D
+}
+.kw:hover{box-shadow:0 0 0 3px var(--yellow)}
+.kw .cnt{margin-left:auto;font-size:11px;font-weight:900;color:#0B6E99}
+.kw.on{background:var(--choice-grad);color:#fff;border-color:var(--blue-solid)}
+.kw.on .cnt{color:var(--yellow)}
+.searchhint{font-size:11.4px;font-weight:700;color:#6E7887;line-height:1.45;margin:2px 2px 6px}
+
+/* floating "wrong answers" tray (closed by default) */
+#wrongpanel{top:auto;bottom:56px;width:min(304px,90vw);max-height:52vh}
+#wrongpanel .wrow{
+  display:flex;gap:8px;align-items:center;width:100%;text-align:left;cursor:pointer;
+  background:#fff;border:1.5px solid #EDF1F7;border-radius:10px;padding:5px 7px;margin:4px 0;
+  font-family:inherit;font-size:12.6px;color:#20242B
+}
+#wrongpanel .wrow:hover{box-shadow:0 0 0 3px var(--yellow)}
+#wrongpanel .wnum{
+  flex:0 0 auto;width:25px;height:25px;border-radius:7px;background:#0A0B0D;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11.5px
+}
+#wrongpanel .wrow.ok2 .wnum{background:var(--green)}
+#wrongpanel .empty{font-size:12.4px;color:#6E7887;font-weight:700;padding:2px}
+
+/* filter bar + toast + tiny status */
+#filterbar{
+  position:fixed;left:50%;transform:translateX(-50%);top:14px;z-index:935;display:none;
+  align-items:center;gap:8px;background:#fff;border:2px solid #00B4D8;border-radius:999px;
+  padding:5px 11px;font-size:12.4px;font-weight:800;color:#0B6E99;
+  box-shadow:0 6px 18px rgba(15,25,50,.14)
+}
+#filterbar.show{display:flex}
+#filterbar button{border:0;background:#00B4D8;color:#fff;border-radius:999px;font-family:inherit;
+  font-size:11.5px;font-weight:900;padding:3px 9px;cursor:pointer}
+#toast{
+  position:fixed;left:50%;bottom:58px;transform:translateX(-50%);z-index:9990;
+  background:#15181D;color:#fff;border-radius:999px;padding:7px 14px;font-size:12.6px;font-weight:800;
+  display:none;box-shadow:0 8px 24px rgba(0,0,0,.28);max-width:86vw;text-align:center
+}
+#toast.show{display:block}
+#status{
+  position:fixed;left:6px;bottom:6px;z-index:930;display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.95);border:1.5px solid var(--line);border-radius:999px;
+  padding:4px 9px;font-size:11.2px;font-weight:800;color:#5B6472;
+  box-shadow:0 4px 14px rgba(15,25,50,.10);max-width:calc(100vw - 20px)
+}
+#status .num{color:var(--green)}
+#status .den{color:var(--grey-dark)}
+#sndbtn{
+  border:0;background:#E9EDF3;border-radius:999px;font-size:12px;font-weight:900;color:#3A4250;
+  cursor:pointer;font-family:inherit;padding:2px 8px
+}
+#sndbtn:hover{box-shadow:0 0 0 3px var(--yellow)}
+#sndbtn.off{background:#FDECEA;color:var(--red-dark)}
+
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:9980;pointer-events:none}
+
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+.opt.shake{animation:shake .34s ease 1}
+@keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.panel.show{animation:pop .16s ease-out 1}
+.note.show{animation:pop .16s ease-out 1}
+
+@media (max-width:1180px){ #page{padding-left:60px;padding-right:56px} }
+@media (max-width:980px){
+  #page{padding-left:14px;padding-right:14px;padding-bottom:150px}
+  /* the number bar becomes a small strip of numbers along the bottom */
+  #rail{
+    top:auto;bottom:30px;left:6px;right:6px;transform:none;flex-direction:row;flex-wrap:nowrap;
+    justify-content:flex-start;max-height:44px;max-width:none;overflow-x:auto;overflow-y:hidden;
+    padding:4px 6px;gap:4px
+  }
+  .railsep{display:none}
+  .nb{width:26px;height:26px}
+  #railtoggle{flex:0 0 auto;order:-1}
+  /* right icons stay on one row (tiny) */
+  #idxbtn{top:6px}
+  #searchbtn{top:6px;right:44px}
+  #resetbtn{top:6px;right:82px;width:30px;height:30px}
+  #wrongbtn{top:6px;right:120px;width:30px;height:30px}
+  /* panels drop from under the icons, never off-screen */
+  .panel{right:6px;left:6px;width:auto;max-height:60vh}
+  #idxpanel{top:44px}#searchpanel{top:44px}
+  #wrongpanel{top:44px;bottom:auto}
+  #toast{bottom:84px;font-size:12px}
+  #status{font-size:10.4px;padding:3px 7px;max-width:calc(100vw - 12px)}
+  #statfile{max-width:26vw}
+  .qtext{font-size:17px}
+  .btn{font-size:12px;padding:6px 11px}
+  .q{padding:12px 12px 14px}
+}
+
+/* multi-answer questions: chosen (not yet checked) choices */
+.opt.choosing{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--yellow)}
+#statfile{max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q.hit{outline:3px solid var(--yellow);outline-offset:2px}
+
+/* ==== highlighting inside the choices and inside the PDF note ================
+   choices are dark, so the highlight there is black + yellow rim (obvious);
+   the PDF note is light, so it uses the same blue gradient as everything else */
+.opt .w1{cursor:pointer;border-radius:5px;padding:0 1px}
+.opt .w1:hover{box-shadow:0 0 0 2px var(--yellow),0 0 0 5px rgba(255,210,31,.22)}
+.opt .w1.mk{background:#0A0B0D!important;color:#fff!important;font-weight:800;
+  box-shadow:0 0 0 1.6px var(--yellow)}
+.opt .w1.mk:hover{box-shadow:0 0 0 3px var(--yellow)}
+.note .w1{cursor:pointer;border-radius:5px;padding:0 1px}
+.note .w1:hover{box-shadow:0 0 0 3px var(--yellow)}
+.case .w1, .qtext .w1, .ainote .w1{cursor:pointer}
+
+/* ==== "the answer:" lead line + the example file's notes list ================= */
+.anslead{
+  margin-top:10px;padding:8px 12px;border-radius:10px;background:#EFF4FA;
+  border:1.5px solid #D5E0EA;font-size:14.6px;font-weight:700;color:#1F2D3A
+}
+.anslead b{color:#294056;margin-right:4px}
+.anslead .alnote{display:block;margin-top:3px;font-size:11px;font-weight:700;color:#6E7887}
+.anslead .w1{cursor:pointer;border-radius:5px;padding:0 1px}
+.anslead .w1:hover{box-shadow:0 0 0 3px var(--yellow)}
+.anslead .w1.mk{background:var(--hl-grad)!important;color:#fff!important;font-weight:800}
+.ainote .wnotes .wul.tips{margin:0;padding:0;list-style:none}
+.ainote .wnotes .wul.tips li{position:relative;padding-left:17px;margin:5px 0;font-weight:600;line-height:1.6}
+.ainote .wnotes .wul.tips li:before{content:"";position:absolute;left:2px;top:.55em;width:6px;height:6px;border-radius:50%;
+  background:linear-gradient(180deg,#37536E,#294056);box-shadow:0 0 0 2px var(--yellow),0 0 0 4.5px rgba(255,210,31,.22)}
+
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div id="page"></div>
+
+<!-- left : question number task bar (scrollable, floating, never over the text) -->
+<aside id="rail" aria-label="Question numbers"></aside>
+
+<!-- right : index · search · restart · mistakes tray -->
+<button id="idxbtn"  class="rbtn" title="Index — open / close">&#9776;</button>
+<button id="searchbtn" class="rbtn" title="Search keywords — open / close">&#128269;</button>
+<button id="resetbtn" class="rbtn" title="Remove your answers and start again">&#8635;</button>
+<button id="wrongbtn" class="rbtn" title="Your wrong answers — open / close"><svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true"><path d="M2.2 2.2 L9.8 9.8 M9.8 2.2 L2.2 9.8" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" fill="none"/></svg><span class="wcount" id="wcount">0</span></button>
+
+<div id="idxpanel" class="panel"></div>
+<div id="searchpanel" class="panel"></div>
+<div id="wrongpanel" class="panel"></div>
+
+<div id="filterbar"></div>
+<div id="toast"></div>
+<div id="status">
+  <span id="statnum"></span><span id="statfile"></span>
+  <button id="sndbtn" title="Sounds on / off">sounds: on</button>
+</div>
+
+<script>
+/* ---- everything below comes from the uploaded PDF (no outside content) ---- */
+window.__ILD_DATA__ = {"file": "ILD Case Scenarios MCQs Full QA.pdf", "report": "https://anonymousmessage.link/tuFJXyYC", "topics": [{"id": "t1", "name": "Case Scenario 1: Idiopathic Pulmonary Fibrosis (IPF)", "color": "#6A4BB8", "short": "Case Scenario 1: Idiopathic Pulmonary Fibrosis (IPF)"}, {"id": "t2", "name": "Case Scenario 2: Hypersensitivity Pneumonitis (HP)", "color": "#0E7490", "short": "Case Scenario 2: Hypersensitivity Pneumonitis (HP)"}], "cases": [{"id": "t1", "color": "#6A4BB8", "name": "Case Scenario 1: Idiopathic Pulmonary Fibrosis (IPF)", "bullets": ["69-year-old male", "Progressive dyspnea & dry cough for 4 years", "Bilateral basal fine crackles, clubbing", "HRCT: basal subpleural honeycombing", "Restrictive pattern on PFT"]}, {"id": "t2", "color": "#0E7490", "name": "Case Scenario 2: Hypersensitivity Pneumonitis (HP)", "bullets": ["52-year-old female", "Chronic bird exposure", "Progressive dyspnea, dry cough, weight loss", "HRCT: upper lobe fibrosis", "Restrictive pattern on PFT"]}], "questions": [{"n": 1, "topic": "t1", "slot": "B", "q": "What is the most likely diagnosis?", "opts": [{"k": "A", "t": "COP"}, {"k": "B", "t": "Idiopathic Pulmonary Fibrosis"}, {"k": "C", "t": "NSIP"}, {"k": "D", "t": "Hypersensitivity pneumonitis"}], "correct": ["B"], "expl": ["Typical UIP pattern in elderly patient."], "ai": {"why": ["Case = elderly man + 4 years of progressive dyspnoea and dry cough + basal fine crackles and clubbing + basal subpleural honeycombing + restrictive PFT → a complete UIP picture.", "NSIP, COP and hypersensitivity pneumonitis do not fit this age, this distribution and this HRCT pattern."], "notes": ["usMLE — Typical clinical picture + <b>definite UIP</b> on HRCT → no biopsy; MDD is the gold-standard step.", "PLAB — Refer to an ILD multidisciplinary team; add smoking cessation + flu/pneumococcal vaccination."], "mnem": "“Old man + LOW lungs + HONEYCOMB = IPF” — 69 y, basal subpleural honeycombing, clubbing.", "fileNote": "Typical UIP pattern in elderly patient.", "lines": [{"p": "p2", "t": "What is the most likely diagnosis? A. NSIP B. COP C. Idiopathic Pulmonary Fibrosis D. Hypersensitivity pneumonitis"}, {"p": "p3", "t": "Correct answer: C · Explanation: Typical UIP pattern in elderly patient."}]}}, {"n": 2, "topic": "t1", "slot": "D", "q": "Which HRCT finding confirms this diagnosis?", "opts": [{"k": "A", "t": "Consolidation"}, {"k": "B", "t": "Nodules"}, {"k": "C", "t": "Ground glass opacity"}, {"k": "D", "t": "Honeycombing"}], "correct": ["D"], "expl": ["Honeycombing is diagnostic of UIP."], "ai": {"why": ["UIP is confirmed on HRCT by honeycombing, together with reticulation and traction bronchiectasis, basal and subpleural.", "Ground-glass, nodules and consolidation are not the confirmatory finding here."], "notes": ["usMLE — UIP triad = honeycombing + reticulation + traction bronchiectasis; ground-glass is <b>not</b> typical.", "PLAB — HRCT is the key test — avoid surgical biopsy when the pattern is definite UIP."], "mnem": "“HONEYCOMB sits in the honey at the BASE” — basal, subpleural, peripheral.", "fileNote": "Honeycombing is diagnostic of UIP.", "lines": [{"p": "p4", "t": "Which HRCT finding confirms this diagnosis? A. Ground glass opacity B. Nodules C. Honeycombing D. Consolidation"}, {"p": "p5", "t": "Correct answer: C · Explanation: Honeycombing is diagnostic of UIP."}]}}, {"n": 3, "topic": "t1", "slot": "C", "q": "What is the pathological hallmark of UIP?", "opts": [{"k": "A", "t": "Lymphoid follicles"}, {"k": "B", "t": "Granuloma"}, {"k": "C", "t": "Fibroblastic foci"}, {"k": "D", "t": "Diffuse alveolar damage"}], "correct": ["C"], "expl": ["Fibroblastic foci are characteristic."], "ai": {"why": ["The pathological hallmark of UIP is the fibroblastic focus (myofibroblast proliferation at the edge of the fibrosis).", "Granulomas point to sarcoidosis/HP, and diffuse alveolar damage points to ARDS."], "notes": ["usMLE — UIP histology is <b>heterogeneous</b> (normal lung next to fibrosis) with fibroblastic foci; diffuse alveolar damage belongs to ARDS.", "PLAB — Biopsy is only needed when the pattern is indeterminate after MDD."], "mnem": "“FOCI = Fibroblasts On Chronic Injury” — the hallmark of UIP.", "fileNote": "Fibroblastic foci are characteristic.", "lines": [{"p": "p6", "t": "What is the pathological hallmark of UIP? A. Granuloma B. Diffuse alveolar damage C. Fibroblastic foci D. Lymphoid follicles"}, {"p": "p7", "t": "Correct answer: C · Explanation: Fibroblastic foci are characteristic."}]}}, {"n": 4, "topic": "t1", "slot": "A", "q": "Which age group is most commonly affected?", "opts": [{"k": "A", "t": ">65 years"}, {"k": "B", "t": "<40 years"}, {"k": "C", "t": "40–50 years"}, {"k": "D", "t": "50–60 years"}], "correct": ["A"], "expl": ["IPF is common in elderly patients."], "ai": {"why": ["IPF is a disease of the elderly — the case patient is 69 years old and the file's explanation says IPF is common in elderly patients."], "notes": ["usMLE — Young patient with ILD → think connective-tissue-disease ILD, familial PF, HP or sarcoidosis instead.", "PLAB — Age + exposure history are what steer the whole differential."], "mnem": "“IPF is a 65+ club disease” — rare under 50.", "fileNote": "IPF is common in elderly patients.", "lines": [{"p": "p8", "t": "Which age group is most commonly affected? A. <40 years B. 40–50 years C. 50–60 years D. >65 years"}, {"p": "p9", "t": "Correct answer: D · Explanation: IPF is common in elderly patients."}]}}, {"n": 5, "topic": "t1", "slot": "C", "q": "Which lung zone is predominantly involved?", "opts": [{"k": "A", "t": "Upper lobes"}, {"k": "B", "t": "Perihilar"}, {"k": "C", "t": "Lower lobes"}, {"k": "D", "t": "Middle lobes"}], "correct": ["C"], "expl": ["UIP is basal predominant."], "ai": {"why": ["UIP is basal-predominant, matching the case HRCT (basal subpleural honeycombing).", "Upper-zone fibrosis would instead suggest chronic hypersensitivity pneumonitis or sarcoidosis."], "notes": ["usMLE — UIP = <b>basal + subpleural</b> predominance; sarcoid and HP are upper-zone.", "PLAB — The distribution on HRCT is a quick bedside clue to the cause."], "mnem": "“UIP SINKS to the base” — HP flies up, UIP sinks down.", "fileNote": "UIP is basal predominant.", "lines": [{"p": "p10", "t": "Which lung zone is predominantly involved? A. Upper lobes B. Middle lobes C. Lower lobes D. Perihilar"}, {"p": "p11", "t": "Correct answer: C · Explanation: UIP is basal predominant."}]}}, {"n": 6, "topic": "t1", "slot": "A", "q": "Pulmonary function test typically shows:", "opts": [{"k": "A", "t": "Restrictive pattern"}, {"k": "B", "t": "Mixed pattern"}, {"k": "C", "t": "Obstructive pattern"}, {"k": "D", "t": "Normal"}], "correct": ["A"], "expl": ["Reduced FVC with normal FEV1/FVC."], "ai": {"why": ["The case itself says restrictive pattern on PFT: reduced FVC with a normal FEV1/FVC and a reduced DLCO.", "An obstructive pattern (reduced FEV1/FVC) is COPD/asthma, not ILD."], "notes": ["usMLE — ILD: ↓FVC, FEV1/FVC normal or ↑, ↓DLCO — obstruction is ↓FEV1/FVC.", "PLAB — Add DLCO + lung volumes + 6-minute walk test for desaturation."], "mnem": "“Restrictive = Reduced volume, Ratio preserved”.", "fileNote": "Reduced FVC with normal FEV1/FVC.", "lines": [{"p": "p12", "t": "Pulmonary function test typically shows: A. Obstructive pattern B. Restrictive pattern C. Mixed pattern D. Normal"}, {"p": "p13", "t": "Correct answer: B · Explanation: Reduced FVC with normal FEV1/FVC."}]}}, {"n": 7, "topic": "t1", "slot": "D", "q": "Which drug slows disease progression in IPF?", "opts": [{"k": "A", "t": "Salbutamol"}, {"k": "B", "t": "Prednisone"}, {"k": "C", "t": "Azathioprine"}, {"k": "D", "t": "Pirfenidone"}], "correct": ["D"], "expl": ["Antifibrotic therapy is standard."], "ai": {"why": ["Pirfenidone is an antifibrotic drug that slows the decline of FVC in IPF.", "Steroids and azathioprine are harmful in IPF (the PANTHER trial), and salbutamol has no antifibrotic role."], "notes": ["usMLE — Antifibrotics <b>slow</b> FVC decline — they do not reverse fibrosis; PANTHER (prednisone+azathioprine+NAC) increased mortality.", "PLAB — Counsel: nausea, diarrhoea, photosensitive rash (pirfenidone); diarrhoea + LFT monitoring (nintedanib)."], "mnem": "“PIRfenidone = PIRate slows the scar” (nintedanib is the other antifibrotic).", "fileNote": "Antifibrotic therapy is standard.", "lines": [{"p": "p14", "t": "Which drug slows disease progression in IPF? A. Azathioprine B. Prednisone C. Pirfenidone D. Salbutamol"}, {"p": "p15", "t": "Correct answer: C · Explanation: Antifibrotic therapy is standard."}]}}, {"n": 8, "topic": "t1", "slot": "B", "q": "Current gold standard diagnostic approach is:", "opts": [{"k": "A", "t": "Chest X-ray"}, {"k": "B", "t": "Multidisciplinary discussion"}, {"k": "C", "t": "BAL"}, {"k": "D", "t": "Surgical biopsy in all cases"}], "correct": ["B"], "expl": ["MDD integrates clinical, radiological data."], "ai": {"why": ["The gold standard is a multidisciplinary discussion that integrates clinical + radiological (and, when needed, histological) data.", "Surgical biopsy is not required in every case and BAL cannot diagnose UIP."], "notes": ["usMLE — Multidisciplinary discussion integrates clinical + radiological ± histological data; BAL cannot diagnose UIP.", "PLAB — Every suspected ILD should reach a specialist MDT."], "mnem": "“The MDT does the thinking, not the scalpel”.", "fileNote": "MDD integrates clinical, radiological data.", "lines": [{"p": "p16", "t": "Current gold standard diagnostic approach is: A. Surgical biopsy in all cases B. BAL C. Multidisciplinary discussion D. Chest X-ray"}, {"p": "p17", "t": "Correct answer: C · Explanation: MDD integrates clinical, radiological data."}]}}, {"n": 9, "topic": "t1", "slot": "D", "q": "Prognosis of UIP compared to other ILDs is:", "opts": [{"k": "A", "t": "Variable"}, {"k": "B", "t": "Best"}, {"k": "C", "t": "Intermediate"}, {"k": "D", "t": "Worst"}], "correct": ["D"], "expl": ["UIP has the worst prognosis."], "ai": {"why": ["UIP/IPF carries the worst prognosis of the interstitial lung diseases, which is exactly what the file says."], "notes": ["usMLE — Median survival ≈3–5 years — worse than NSIP, COP and HP.", "PLAB — Plan oxygen assessment, rehab, palliative input and transplant referral early."], "mnem": "“UIP = the Worst Usual Interstitial Pneumonia”.", "fileNote": "UIP has the worst prognosis.", "lines": [{"p": "p18", "t": "Prognosis of UIP compared to other ILDs is: A. Best B. Intermediate C. Variable D. Worst"}, {"p": "p19", "t": "Correct answer: D · Explanation: UIP has the worst prognosis."}]}}, {"n": 10, "topic": "t1", "slot": "B", "q": "Definitive treatment for advanced IPF is:", "opts": [{"k": "A", "t": "Long-term steroids"}, {"k": "B", "t": "Lung transplantation"}, {"k": "C", "t": "Oxygen therapy"}, {"k": "D", "t": "Antibiotics"}], "correct": ["B"], "expl": ["Only curative option in advanced disease."], "ai": {"why": ["Lung transplantation is the only curative option for advanced IPF; oxygen, steroids and antibiotics are supportive only."], "notes": ["usMLE — Lung transplantation is the only curative option in advanced disease; antifibrotics bridge the waiting time.", "PLAB — Discuss realistic goals: symptom control, vaccination, oxygen, rehab."], "mnem": "“Only a new lung is a cure”.", "fileNote": "Only curative option in advanced disease.", "lines": [{"p": "p20", "t": "Definitive treatment for advanced IPF is: A. Long-term steroids B. Oxygen therapy C. Lung transplantation D. Antibiotics"}, {"p": "p21", "t": "Correct answer: C · Explanation: Only curative option in advanced disease."}]}}, {"n": 11, "topic": "t2", "slot": "A", "q": "What is the most likely diagnosis?", "opts": [{"k": "A", "t": "Hypersensitivity pneumonitis"}, {"k": "B", "t": "IPF"}, {"k": "C", "t": "Sarcoidosis"}, {"k": "D", "t": "COP"}], "correct": ["A"], "expl": ["Bird exposure with ILD features."], "ai": {"why": ["52-year-old woman + chronic bird exposure + upper-lobe fibrosis + restrictive PFT → hypersensitivity pneumonitis.", "IPF would be basal and in an older patient; sarcoidosis would show hilar adenopathy; COP is not linked to bird exposure."], "notes": ["usMLE — HP is an <b>environmental</b> ILD: exposure history + upper-zone imaging + BAL lymphocytosis.", "PLAB — Ask directly about birds, hay, humidifiers, hot tubs and mould."], "mnem": "“BIRDS fly UP” — bird exposure + upper-lobe fibrosis = HP.", "fileNote": "Bird exposure with ILD features.", "lines": [{"p": "p23", "t": "What is the most likely diagnosis? A. IPF B. Sarcoidosis C. Hypersensitivity pneumonitis D. COP"}, {"p": "p24", "t": "Correct answer: C · Explanation: Bird exposure with ILD features."}]}}, {"n": 12, "topic": "t2", "slot": "C", "q": "The main etiological factor is:", "opts": [{"k": "A", "t": "Drugs"}, {"k": "B", "t": "Smoking"}, {"k": "C", "t": "Bird antigen"}, {"k": "D", "t": "Radiation"}], "correct": ["C"], "expl": ["Organic antigen exposure."], "ai": {"why": ["HP is triggered by inhaled organic antigens, classically bird proteins (pigeon breeders) and mouldy hay (farmer's lung)."], "notes": ["usMLE — Organic antigens cause a type III/IV hypersensitivity reaction (pigeon breeder, farmer's lung).", "PLAB — The single most important step is stopping the exposure — prevention is the treatment."], "mnem": "“BIRD FANCIER” — Birds, Farmer's lung, Humidifiers, Actinomycetes, No idea? DUST, Contaminated water, Isocyanates, Exposure time, Remove the antigen.", "fileNote": "Organic antigen exposure.", "lines": [{"p": "p25", "t": "The main etiological factor is: A. Smoking B. Bird antigen C. Drugs D. Radiation"}, {"p": "p26", "t": "Correct answer: B · Explanation: Organic antigen exposure."}]}}, {"n": 13, "topic": "t2", "slot": "A", "q": "Chronic HP predominantly affects which lung zone?", "opts": [{"k": "A", "t": "Upper lobes"}, {"k": "B", "t": "Middle lobes"}, {"k": "C", "t": "Lower lobes"}, {"k": "D", "t": "Perihilar"}], "correct": ["A"], "expl": ["Upper lobe fibrosis in chronic HP."], "ai": {"why": ["Chronic HP produces fibrosis in the upper and mid zones — the case HRCT states upper lobe fibrosis.", "Lower-lobe disease is the UIP/IPF pattern."], "notes": ["usMLE — Chronic HP: upper-lobe fibrosis + air trapping; sarcoid is also upper-zone but with hilar adenopathy.", "PLAB — Upper-zone fibrosis should always trigger an exposure history."], "mnem": "“Birds fly UP” — chronic HP affects the upper/mid zones.", "fileNote": "Upper lobe fibrosis in chronic HP.", "lines": [{"p": "p27", "t": "Chronic HP predominantly affects which lung zone? A. Lower lobes B. Upper lobes C. Middle lobes D. Perihilar"}, {"p": "p28", "t": "Correct answer: B · Explanation: Upper lobe fibrosis in chronic HP."}]}}, {"n": 14, "topic": "t2", "slot": "C", "q": "Typical pulmonary function test shows:", "opts": [{"k": "A", "t": "Normal"}, {"k": "B", "t": "Mixed"}, {"k": "C", "t": "Restrictive"}, {"k": "D", "t": "Obstructive"}], "correct": ["C"], "expl": ["ILD causes restrictive defect."], "ai": {"why": ["Interstitial lung disease — HP included — produces a restrictive defect on pulmonary function testing."], "notes": ["usMLE — HP gives a restrictive ± obstructive (bronchiolitis) picture with ↓DLCO; early disease can be reversible.", "PLAB — Monitor PFTs and exercise saturation on follow-up."], "mnem": "“Any diffuse ILD = restrictive”.", "fileNote": "ILD causes restrictive defect.", "lines": [{"p": "p29", "t": "Typical pulmonary function test shows: A. Obstructive B. Restrictive C. Normal D. Mixed"}, {"p": "p30", "t": "Correct answer: B · Explanation: ILD causes restrictive defect."}]}}, {"n": 15, "topic": "t2", "slot": "B", "q": "First and most important management step is:", "opts": [{"k": "A", "t": "Lung biopsy"}, {"k": "B", "t": "Remove exposure"}, {"k": "C", "t": "Steroids"}, {"k": "D", "t": "Antifibrotics"}], "correct": ["B"], "expl": ["Antigen avoidance is crucial."], "ai": {"why": ["Antigen avoidance comes first: without removing the exposure, no drug can control the disease.", "Steroids and antifibrotics are additions, never replacements, for avoidance."], "notes": ["usMLE — Antigen avoidance is the cornerstone of treatment; steroids only reduce inflammation.", "PLAB — Warn about recurrence on re-exposure + give occupational protection advice."], "mnem": "“AVOID beats Steroid”.", "fileNote": "Antigen avoidance is crucial.", "lines": [{"p": "p31", "t": "First and most important management step is: A. Steroids B. Antifibrotics C. Remove exposure D. Lung biopsy"}, {"p": "p32", "t": "Correct answer: C · Explanation: Antigen avoidance is crucial."}]}}, {"n": 16, "topic": "t2", "slot": "D", "q": "Typical radiological feature of acute HP is:", "opts": [{"k": "A", "t": "Cavitation"}, {"k": "B", "t": "Honeycombing"}, {"k": "C", "t": "Pleural effusion"}, {"k": "D", "t": "Reticulonodular opacities"}], "correct": ["D"], "expl": ["Acute inflammatory changes."], "ai": {"why": ["Acute HP shows inflammatory changes — reticulonodular opacities and ground-glass — rather than established fibrosis.", "Honeycombing, effusion and cavitation belong to other diseases."], "notes": ["usMLE — Acute/subacute HP: <b>centrilobular nodules</b>, ground-glass and mosaic air trapping; honeycombing is IPF.", "PLAB — Symptoms classically start 4–8 hours after exposure (fever, chills, cough, dyspnoea)."], "mnem": "“Acute HP = nodules + ground-glass; chronic = scar”.", "fileNote": "Acute inflammatory changes.", "lines": [{"p": "p33", "t": "Typical radiological feature of acute HP is: A. Honeycombing B. Reticulonodular opacities C. Pleural effusion D. Cavitation"}, {"p": "p34", "t": "Correct answer: B · Explanation: Acute inflammatory changes."}]}}, {"n": 17, "topic": "t2", "slot": "B", "q": "HP is classified as:", "opts": [{"k": "A", "t": "Drug-induced ILD"}, {"k": "B", "t": "Environmental ILD"}, {"k": "C", "t": "Smoking-related ILD"}, {"k": "D", "t": "Idiopathic ILD"}], "correct": ["B"], "expl": ["Caused by environmental antigen."], "ai": {"why": ["HP is an environmental (extrinsic) ILD because it is caused by an external antigen, not by an intrinsic idiopathic process."], "notes": ["usMLE — ILD families: idiopathic (IPF), environmental (HP), connective-tissue, drug-induced and granulomatous (sarcoid).", "PLAB — Take an occupational/environmental history in <b>every</b> ILD patient."], "mnem": "“HP is EXTRINSIC — the trigger is outside the body”.", "fileNote": "Caused by environmental antigen.", "lines": [{"p": "p35", "t": "HP is classified as: A. Idiopathic ILD B. Environmental ILD C. Smoking-related ILD D. Drug-induced ILD"}, {"p": "p36", "t": "Correct answer: B · Explanation: Caused by environmental antigen."}]}}, {"n": 18, "topic": "t2", "slot": "D", "q": "If untreated, chronic HP may lead to:", "opts": [{"k": "A", "t": "Asthma"}, {"k": "B", "t": "COPD"}, {"k": "C", "t": "Pneumonia"}, {"k": "D", "t": "Pulmonary fibrosis"}], "correct": ["D"], "expl": ["Progressive fibrosis may occur."], "ai": {"why": ["Persistent, untreated chronic HP can progress to pulmonary fibrosis — the file's explanation says progressive fibrosis may occur."], "notes": ["usMLE — Untreated chronic HP can progress to a fibrotic (UIP-like) pattern with a poor prognosis.", "PLAB — Track PFTs; refer early if progressive, to discuss antifibrotics."], "mnem": "“Chronic inflammation lays down the scar”.", "fileNote": "Progressive fibrosis may occur.", "lines": [{"p": "p37", "t": "If untreated, chronic HP may lead to: A. COPD B. Asthma C. Pulmonary fibrosis D. Pneumonia"}, {"p": "p38", "t": "Correct answer: C · Explanation: Progressive fibrosis may occur."}]}}, {"n": 19, "topic": "t2", "slot": "A", "q": "Clubbing in HP is:", "opts": [{"k": "A", "t": "Rare"}, {"k": "B", "t": "Always present"}, {"k": "C", "t": "Common"}, {"k": "D", "t": "Diagnostic"}], "correct": ["A"], "expl": ["Clubbing is uncommon."], "ai": {"why": ["Clubbing is rare in HP; it is typical of IPF and other fibrotic diseases, so it helps separate the two."], "notes": ["usMLE — Clubbing pushes you away from HP → think IPF, connective-tissue ILD or asbestosis.", "PLAB — Clubbing + bibasal crackles + restrictive PFT = the classic fibrosis picture."], "mnem": "“HP = clubbing RARE; IPF = clubbing RULE”.", "fileNote": "Clubbing is uncommon.", "lines": [{"p": "p39", "t": "Clubbing in HP is: A. Always present B. Common C. Rare D. Diagnostic"}, {"p": "p40", "t": "Correct answer: C · Explanation: Clubbing is uncommon."}]}}, {"n": 20, "topic": "t2", "slot": "C", "q": "Role of steroids in HP is to:", "opts": [{"k": "A", "t": "Prevent infection"}, {"k": "B", "t": "Replace avoidance"}, {"k": "C", "t": "Reduce inflammation"}, {"k": "D", "t": "Cure disease"}], "correct": ["C"], "expl": ["Steroids reduce inflammatory response."], "ai": {"why": ["Steroids reduce the inflammatory response in HP; they do not cure the disease and never replace antigen avoidance."], "notes": ["usMLE — Steroids in HP reduce the inflammatory response; long-term benefit is limited and they never replace antigen avoidance.", "PLAB — Use a tapering course for symptomatic HP; monitor glucose, BP and bone protection."], "mnem": "“Steroids are the fire extinguisher, not the fire alarm” — they dampen inflammation, they do not remove the cause.", "fileNote": "Steroids reduce inflammatory response.", "lines": [{"p": "p41", "t": "Role of steroids in HP is to: A. Cure disease B. Replace avoidance C. Reduce inflammation D. Prevent infection"}, {"p": "p42", "t": "Correct answer: C · Explanation: Steroids reduce inflammatory response."}]}}], "keywords": [{"label": "ILD - Idiopathic Pulmonary Fibrosis (IPF) / UIP", "topics": ["t1"], "terms": ["ipf", "idiopathic pulmonary fibrosis", "uip", "usual interstitial", "honeycomb", "fibroblastic", "antifibrotic", "pirfenidone", "multidisciplinary", "surgical biopsy", "transplantation", "clubbing"]}, {"label": "Hypersensitivity Pneumonitis (HP)", "topics": ["t2"], "terms": ["hypersensitivity pneumonitis", "hp", "bird antigen", "environmental", "organic antigen", "reticulonodular", "weight loss", "dyspnea", "cough", "clubbing"]}, {"label": "HRCT / Chest imaging", "topics": [], "terms": ["hrct", "honeycomb", "ground glass", "nodules", "consolidation", "chest x-ray", "reticulonodular", "opacities", "pleural effusion", "cavitation", "basal", "subpleural"]}, {"label": "Pulmonary function tests (PFT)", "topics": [], "terms": ["pulmonary function", "pft", "restrictive", "obstructive", "mixed pattern", "fvc", "fev1"]}, {"label": "Management & treatment", "topics": [], "terms": ["pirfenidone", "azathioprine", "prednisone", "salbutamol", "steroids", "steroid", "antifibrotics", "oxygen", "transplantation", "antibiotic", "remove exposure", "avoidance", "biopsy", "bal", "multidisciplinary"]}, {"label": "Clinical picture / signs & symptoms", "topics": [], "terms": ["dyspnea", "cough", "crackles", "clubbing", "weight loss", "age group", "elderly", "years"]}, {"label": "Pathology & prognosis", "topics": [], "terms": ["prognosis", "fibroblastic foci", "granuloma", "diffuse alveolar damage", "lymphoid follicles", "worst", "fibrosis", "inflammation"]}, {"label": "Lung zone / distribution", "topics": [], "terms": ["upper lobes", "lower lobes", "middle lobes", "perihilar", "basal", "zone"]}]};
+/* ---- real sound effects, embedded so the file stays self-contained -------
+   applause : CC0 field recording of audience applause
+   pop/boing: free sound-effect library used for UI feedback
+   everything else is generated live with the Web Audio API ------------- */
+window.__ILD_SND__ = {"applause": "data:audio/mpeg;base64,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", "pop": "data:audio/mpeg;base64,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", "boing": "data:audio/mpeg;base64,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lKChtBpGF5YZbA5kQXF6F5GOSIyAeFSmKXTkxuKRjdeCfClk9X0xVELZkPkEFBhN7jY6XckovNl2SQkOJrIIoibVdb8optruShcpIoT2pqJ/cVyO+fYEUBBEsaPRSqpZPJqjXnGIYK6SyOoLm0F2FkJCTzbSxg0qAAAEAIYEAAAAOEoEBLgwUJzBwE3kYYALXzEoeCoAu7npYk0u3HRKE0DJCNpEmO4LUHKG9eXSVRI4ISDpClC9ePMuIkD/+zjE5wMKMIkkTmEBAbcaI4nEjXBNwtwtwvIW0WgmX5aYFAwWgmwnxDHKJ6Rh7DiI/+aGl3Uyly6TTQ2JI3NSRNDb/3V000GZNOXjc8XUD5eMzUxQPmX/+plu6FBdSm6Z4xQTMk0DE4fMkzwAAJIB/yEKEIZKq7M2oYCY1AVyBTQo4GCsRXAU2E+MN6K5FdCfGCuiuApsJ8Y7zf//////iuhfwb034roX8G9N+L+VTEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/+zjE6IIKRJMmzeRhQdwYI0q4kABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/+zjE5QATXXcfOcaAAQsIlSOCMAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVU="};
+</script>
+<script>
+/* =============================================================================
+   ILD Case Scenarios MCQs — interactive study engine
+   Everything is event-driven: no idle animation, no moving page content.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var DATA = window.__ILD_DATA__;
+  var RAW = window.__ILD_SND__ || {};
+  var FILE = DATA.file;
+
+  /* ------------------------------ tiny helpers ------------------------------ */
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  };
+  var norm = function (s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+  };
+  var byN = {};
+  DATA.questions.forEach(function (q) { byN[q.n] = q; });
+  var TOPIC = {};
+  DATA.topics.forEach(function (t) { TOPIC[t.id] = t; });
+
+  /* =========================================================================
+     SOUND ENGINE  — distinct sound for every single action (Web Audio API)
+     Real recorded effects (applause, pop, boing) are embedded as data URIs and
+     layered with synthesised tones so every action sounds different.
+     ====================================================================== */
+  var SND = (function () {
+    var ctx = null, master = null, noiseBuf = null, buffers = {}, loading = {}, enabled = true, lastHover = 0, ok = true;
+
+    function ac() {
+      if (!ok) return null;
+      try {
+        if (!ctx) {
+          var C = window.AudioContext || window.webkitAudioContext;
+          if (!C) { ok = false; return null; }
+          ctx = new C();
+          master = ctx.createGain();
+          master.gain.value = 0.85;
+          master.connect(ctx.destination);
+          var n = ctx.createBuffer(1, ctx.sampleRate * 1.4, ctx.sampleRate), d = n.getChannelData(0);
+          for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+          noiseBuf = n;
+        }
+        if (ctx.state === 'suspended') ctx.resume();
+        return ctx;
+      } catch (e) { ok = false; return null; }
+    }
+    function load(key, uri) {
+      var c = ac(); if (!c || !uri || buffers[key] || loading[key]) return;
+      loading[key] = true;
+      var done = function (ab) {
+        try { c.decodeAudioData(ab, function (b) { buffers[key] = b; }, function () {}); } catch (e) {}
+      };
+      try {
+        /* fetch handles data: URIs reliably, even when the file is opened from disk */
+        fetch(uri).then(function (r) { return r.arrayBuffer(); }).then(done).catch(function () {
+          var x = new XMLHttpRequest();          /* very old browsers fallback */
+          x.open('GET', uri, true); x.responseType = 'arraybuffer';
+          x.onload = function () { done(x.response); }; x.send();
+        });
+      } catch (e) {
+        try { var x2 = new XMLHttpRequest(); x2.open('GET', uri, true); x2.responseType = 'arraybuffer';
+              x2.onload = function () { done(x2.response); }; x2.send(); } catch (e2) {}
+      }
+    }
+    function unlock() {
+      var c = ac(); if (!c) return;
+      if (RAW.applause && !buffers.applause) load('applause', RAW.applause);
+      if (RAW.pop && !buffers.pop) load('pop', RAW.pop);
+      if (RAW.boing && !buffers.boing) load('boing', RAW.boing);
+    }
+    function sample(key, gain, rate) {
+      var c = ac(); if (!c || !buffers[key]) return false;
+      var s = c.createBufferSource(), g = c.createGain();
+      s.buffer = buffers[key];
+      s.playbackRate.value = rate || 1;
+      g.gain.value = gain == null ? 0.7 : gain;
+      s.connect(g); g.connect(master);
+      s.start(0);
+      return true;
+    }
+    /* one synthesised tone */
+    function tone(o) {
+      var c = ac(); if (!c || !enabled) return;
+      var t = c.currentTime + (o.at || 0);
+      var osc = c.createOscillator(), g = c.createGain(), dest = master, f = null;
+      osc.type = o.type || 'sine';
+      osc.frequency.setValueAtTime(o.f0, t);
+      if (o.f1 != null) {
+        if (o.mode === 'lin') osc.frequency.linearRampToValueAtTime(o.f1, t + o.dur);
+        else osc.frequency.exponentialRampToValueAtTime(Math.max(20, o.f1), t + o.dur);
+      }
+      if (o.q) {
+        f = c.createBiquadFilter();
+        f.type = o.q.type || 'bandpass';
+        f.frequency.setValueAtTime(o.q.f0, t);
+        if (o.q.f1 != null) f.frequency.exponentialRampToValueAtTime(Math.max(30, o.q.f1), t + o.dur);
+        f.Q.value = o.q.Q == null ? 1.2 : o.q.Q;
+        osc.connect(f); f.connect(g);
+      } else { osc.connect(g); }
+      g.gain.setValueAtTime(0.00001, t);
+      g.gain.linearRampToValueAtTime(o.g == null ? 0.12 : o.g, t + Math.min(0.02, o.dur * 0.25));
+      g.gain.exponentialRampToValueAtTime(0.00001, t + o.dur);
+      g.connect(dest);
+      osc.start(t); osc.stop(t + o.dur + 0.02);
+    }
+    /* one filtered noise sweep */
+    function whoosh(o) {
+      var c = ac(); if (!c || !enabled) return;
+      var t = c.currentTime + (o.at || 0);
+      var s = c.createBufferSource(), g = c.createGain(), f = c.createBiquadFilter();
+      s.buffer = noiseBuf; s.loop = true;
+      f.type = o.type || 'bandpass';
+      f.Q.value = o.Q == null ? 0.9 : o.Q;
+      f.frequency.setValueAtTime(o.f0, t);
+      f.frequency.exponentialRampToValueAtTime(Math.max(40, o.f1), t + o.dur);
+      g.gain.setValueAtTime(0.00001, t);
+      g.gain.linearRampToValueAtTime(o.g == null ? 0.09 : o.g, t + o.dur * 0.35);
+      g.gain.exponentialRampToValueAtTime(0.00001, t + o.dur);
+      s.connect(f); f.connect(g); g.connect(master);
+      s.start(t); s.stop(t + o.dur + 0.03);
+    }
+    function chord(notes, o) {                       /* little arpeggio */
+      o = o || {};
+      notes.forEach(function (f, i) {
+        tone({ type: o.type || 'triangle', f0: f, f1: f, at: (o.at || 0) + i * (o.step || 0.085), dur: o.dur || 0.30, g: o.g || 0.11 });
+      });
+    }
+
+    return {
+      unlock: unlock,
+      isOn: function () { return enabled; },
+      set: function (v) { enabled = !!v; if (enabled) { unlock(); ac(); } },
+      /* --- every distinct action --- */
+      click: function () { if (!sample('pop', 0.45, 1)) { tone({ type: 'square', f0: 560, f1: 300, dur: 0.07, g: 0.10 }); whoosh({ f0: 2400, f1: 900, dur: 0.05, g: 0.05 }); } },
+      hover: function () {
+        var t = Date.now(); if (t - lastHover < 55) return; lastHover = t;
+        tone({ type: 'sine', f0: 1010, f1: 1220, dur: 0.05, g: 0.035 });
+      },
+      nav: function () { tone({ type: 'triangle', f0: 420, f1: 1250, dur: 0.16, g: 0.09, q: { type: 'bandpass', f0: 900, f1: 2200, Q: 2 } }); whoosh({ f0: 500, f1: 2600, dur: 0.18, g: 0.05 }); },
+      correct: function () {
+        var real = sample('applause', 0.75, 1);
+        if (!real) { whoosh({ f0: 700, f1: 2200, dur: 0.7, g: 0.07, Q: 0.5 }); }
+        chord([523.25, 659.25, 783.99, 1046.5], { at: 0.02, step: 0.09, dur: 0.42, g: 0.12, type: 'triangle' });
+        tone({ type: 'sine', f0: 1568, f1: 2093, at: 0.42, dur: 0.5, g: 0.06 });
+        whoosh({ f0: 2600, f1: 5200, at: 0.36, dur: 0.45, g: 0.035, Q: 3 });
+      },
+      wrong: function () {
+        tone({ type: 'sawtooth', f0: 320, f1: 96, dur: 0.42, g: 0.14, q: { type: 'lowpass', f0: 1600, f1: 320, Q: 0.8 } });
+        tone({ type: 'square', f0: 150, f1: 70, dur: 0.30, g: 0.09, at: 0.04 });
+        whoosh({ f0: 420, f1: 120, dur: 0.28, g: 0.10, type: 'lowpass', Q: 0.7 });
+      },
+      partial: function () {
+        tone({ type: 'triangle', f0: 660, f1: 660, dur: 0.18, g: 0.09 });
+        tone({ type: 'triangle', f0: 880, f1: 880, dur: 0.22, g: 0.08, at: 0.12 });
+        whoosh({ f0: 1500, f1: 3000, dur: 0.25, g: 0.03 });
+      },
+      exclude: function () {
+        tone({ type: 'square', f0: 700, f1: 640, dur: 0.08, g: 0.10 });
+        tone({ type: 'square', f0: 430, f1: 380, dur: 0.11, g: 0.10, at: 0.07 });
+        whoosh({ f0: 800, f1: 300, dur: 0.14, g: 0.05, type: 'lowpass' });
+      },
+      unex: function () {
+        if (!sample('boing', 0.35, 1.15)) { whoosh({ f0: 300, f1: 1500, dur: 0.14, g: 0.06 }); }
+        tone({ type: 'square', f0: 430, f1: 470, dur: 0.08, g: 0.09 });
+        tone({ type: 'square', f0: 720, f1: 760, dur: 0.12, g: 0.09, at: 0.07 });
+      },
+      why: function () {
+        tone({ type: 'triangle', f0: 700, f1: 760, dur: 0.13, g: 0.10 });
+        tone({ type: 'triangle', f0: 1046, f1: 1180, dur: 0.22, g: 0.09, at: 0.12 });
+        whoosh({ f0: 1800, f1: 4200, dur: 0.24, g: 0.03 });
+      },
+      open: function () { whoosh({ f0: 600, f1: 3200, dur: 0.20, g: 0.07, Q: 1.1 }); tone({ type: 'sine', f0: 880, f1: 1320, dur: 0.14, g: 0.05 }); },
+      close: function () { whoosh({ f0: 3000, f1: 500, dur: 0.17, g: 0.06, Q: 1.1 }); tone({ type: 'sine', f0: 1200, f1: 760, dur: 0.12, g: 0.045 }); },
+      reset: function () {
+        whoosh({ f0: 4200, f1: 220, dur: 0.85, g: 0.10, Q: 0.8 });
+        tone({ type: 'sine', f0: 220, f1: 55, dur: 0.6, g: 0.10 });
+        [0.0, 0.18, 0.36].forEach(function (t) { tone({ type: 'triangle', f0: 320, f1: 130, at: t, dur: 0.20, g: 0.07 }); });
+      },
+      armed: function () { tone({ type: 'square', f0: 900, f1: 900, dur: 0.06, g: 0.07 }); tone({ type: 'square', f0: 1350, f1: 1350, dur: 0.07, g: 0.07, at: 0.08 }); },
+      hl: function () { tone({ type: 'sine', f0: 1500, f1: 1900, dur: 0.035, g: 0.05 }); },
+      unhl: function () { tone({ type: 'sine', f0: 1300, f1: 950, dur: 0.045, g: 0.045 }); },
+      blocked: function () { tone({ type: 'square', f0: 118, f1: 100, dur: 0.16, g: 0.10, q: { type: 'lowpass', f0: 500, Q: 0.8 } }); },
+      filter: function () { whoosh({ f0: 900, f1: 3600, dur: 0.22, g: 0.06 }); tone({ type: 'triangle', f0: 1320, f1: 1320, dur: 0.12, g: 0.05, at: 0.08 }); },
+      clearf: function () { whoosh({ f0: 3200, f1: 700, dur: 0.20, g: 0.06 }); },
+      copy: function () { tone({ type: 'triangle', f0: 1046, f1: 1568, dur: 0.13, g: 0.09 }); tone({ type: 'sine', f0: 1568, f1: 2093, dur: 0.14, g: 0.06, at: 0.10 }); },
+      badge: function () { tone({ type: 'sine', f0: 1180, f1: 1760, dur: 0.09, g: 0.055 }); },
+      jump: function () { tone({ type: 'triangle', f0: 700, f1: 1400, dur: 0.11, g: 0.07 }); whoosh({ f0: 1200, f1: 3000, dur: 0.12, g: 0.035 }); }
+    };
+  })();
+
+  /* =========================================================================
+     SPECIAL EFFECTS — confetti / fireworks / twinkling stars (canvas, finite)
+     ====================================================================== */
+  var FX = (function () {
+    var cv = $('#fx'), cx = cv.getContext('2d'), ps = [], raf = 0, dpr = 1;
+    var CONF = ['#FFD21F', '#7C4DFF', '#00B4D8', '#FF8A3D', '#4DA3FF', '#F45BBA', '#36D399'];
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.floor(innerWidth * dpr); cv.height = Math.floor(innerHeight * dpr);
+      cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    size();
+    addEventListener('resize', size);
+    var T0 = 0;
+    function loop(ts) {
+      if (!T0) T0 = ts;
+      var dt = Math.min(34, ts - T0); T0 = ts;
+      cx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = ps.length - 1; i >= 0; i--) {
+        var p = ps[i];
+        p.life -= dt;
+        if (p.life <= 0) { ps.splice(i, 1); continue; }
+        if (p.k === 'c') {                        /* confetti piece */
+          p.vy += 0.0009 * dt; p.x += (p.vx + Math.sin((ts + p.ph) / 260) * 0.35) * dt * 0.06;
+          p.y += p.vy * dt * 0.06; p.rot += p.vr * dt;
+          cx.save(); cx.translate(p.x, p.y); cx.rotate(p.rot);
+          cx.globalAlpha = Math.max(0, Math.min(1, p.life / 500));
+          cx.fillStyle = p.col;
+          cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          cx.restore();
+        } else if (p.k === 's') {                 /* firework spark */
+          p.vy += 0.00035 * dt; p.vx *= 0.992; p.vy *= 0.992;
+          p.x += p.vx * dt * 0.06; p.y += p.vy * dt * 0.06;
+          cx.globalAlpha = Math.max(0, p.life / p.life0);
+          cx.fillStyle = p.col;
+          cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.283); cx.fill();
+        } else {                                  /* golden star */
+          var a = Math.max(0, p.life / p.life0) * (0.55 + 0.45 * Math.abs(Math.sin((ts + p.ph) / 150)));
+          cx.globalAlpha = a; cx.fillStyle = '#FFC61A';
+          cx.save(); cx.translate(p.x, p.y); cx.rotate(p.rot);
+          star(cx, p.r); cx.restore();
+        }
+      }
+      cx.globalAlpha = 1;
+      if (ps.length) raf = requestAnimationFrame(loop); else { raf = 0; T0 = 0; }
+    }
+    function star(g, r) {
+      g.beginPath();
+      for (var i = 0; i < 10; i++) {
+        var rr = i % 2 ? r * 0.45 : r, a = -Math.PI / 2 + i * Math.PI / 5;
+        g[i ? 'lineTo' : 'moveTo'](Math.cos(a) * rr, Math.sin(a) * rr);
+      }
+      g.closePath(); g.fill();
+    }
+    function run() { if (!raf) raf = requestAnimationFrame(loop); }
+    function confetti(n) {
+      for (var i = 0; i < n; i++) {
+        ps.push({ k: 'c', x: Math.random() * innerWidth, y: -20 - Math.random() * 160,
+          vx: (Math.random() - 0.5) * 3.2, vy: 1.1 + Math.random() * 1.5,
+          w: 6 + Math.random() * 7, h: 9 + Math.random() * 9,
+          rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.35,
+          col: CONF[(Math.random() * CONF.length) | 0], ph: Math.random() * 1000,
+          life: 2600 + Math.random() * 1800 });
+      }
+      run();
+    }
+    function burst(x, y, n, cols) {
+      cols = cols || CONF;
+      for (var i = 0; i < n; i++) {
+        var a = Math.random() * 6.283, sp = 1.4 + Math.random() * 5.2;
+        ps.push({ k: 's', x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 1.2, r: 1.5 + Math.random() * 2.6,
+          col: cols[(Math.random() * cols.length) | 0], life: 520 + Math.random() * 720, life0: 1240 });
+      }
+      run();
+    }
+    function stars(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var a = Math.random() * 6.283, d = 24 + Math.random() * 78;
+        ps.push({ k: 't', x: x + Math.cos(a) * d, y: y + Math.sin(a) * d * 0.7, r: 5 + Math.random() * 8,
+          rot: Math.random() * 6.283, ph: Math.random() * 1000, life: 1100 + Math.random() * 900, life0: 2000 });
+      }
+      run();
+    }
+    function puff(x, y) {
+      for (var i = 0; i < 22; i++) {
+        var a = Math.random() * 6.283, sp = 0.7 + Math.random() * 2.2;
+        ps.push({ k: 's', x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, r: 1.4 + Math.random() * 2,
+          col: '#5B6472', life: 360 + Math.random() * 380, life0: 740 });
+      }
+      run();
+    }
+    function centre(el) { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; }
+    return { confetti: confetti, burst: burst, stars: stars, puff: puff, centre: centre };
+  })();
+
+  /* =========================================================================
+     STATE
+     ====================================================================== */
+  var KEY = 'ild-case-mcq-v1';
+  var BLANK = { ans: {}, ex: {}, marks: {}, sound: true, filter: null, text: '', mini: false };
+  var S = (function () {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) { var o = JSON.parse(raw); return Object.assign({}, BLANK, o); }
+    } catch (e) {}
+    return Object.assign({}, BLANK);
+  })();
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function ansOf(n) { return S.ans[n] || null; }
+  function exSet(n) { return S.ex[n] || (S.ex[n] = []); }
+
+  /* =========================================================================
+     RENDER
+     ====================================================================== */
+  var page = $('#page');
+
+  function tokId(n, i) { return n + ':' + i; }
+
+  /* every word of the file becomes one clickable highlight unit */
+  function wordSpans(key, text) {
+    var ti = 0;
+    return String(text).split(/(\s+)/).map(function (p) {
+      if (!p || /^\s+$/.test(p)) return p;
+      return '<span class="w1" data-q="' + key + '" data-t="' + (ti++) + '">' + esc(p) + '</span>';
+    }).join('');
+  }
+  function buildQText(n, text) { return wordSpans(n, text); }
+
+  function render() {
+    var html = '';
+    DATA.cases.forEach(function (c) {
+      var ckey = 'c:' + c.id, ci = 0;
+      html += '<section class="case" id="case-' + c.id + '" style="--cl:' + c.color + '">' +
+              '<h2>' + esc(c.name) + '</h2><ul>' +
+              c.bullets.map(function (b) {
+                var inner = b.split(/(\s+)/).map(function (w) {
+                  if (/^\s+$/.test(w)) return w;
+                  var id = ci++; return '<span class="w1" data-q="' + ckey + '" data-t="' + id + '">' + esc(w) + '</span>';
+                }).join('');
+                return '<li>' + inner + '</li>';
+              }).join('') +
+              '</ul></section>';
+      DATA.questions.filter(function (q) { return q.topic === c.id; }).forEach(function (q) { html += qHTML(q); });
+    });
+    page.innerHTML = html;
+    applyMarks();
+    applyExcludes();
+    applyAnswers();
+    buildRail(); buildIndex(); buildWrong(); buildSearch(); syncStatus();
+  }
+
+  function qHTML(q) {
+    var t = TOPIC[q.topic];
+    return '<section class="q" id="q' + q.n + '" data-n="' + q.n + '" data-topic="' + q.topic + '" style="--cl:' + t.color + '">' +
+      '<div class="qhead"><span class="qnum">' + q.n + '</span>' +
+      '<span class="qtag"><i style="--cl:' + t.color + '"></i>' + esc(DATA.cases.filter(function (c) { return c.id === q.topic; })[0].name) + '</span></div>' +
+      '<p class="qtext">' + buildQText(q.n, q.q) + '</p>' +
+      '<ul class="opts">' + q.opts.map(function (o) {
+        return '<li class="opt" data-q="' + q.n + '" data-k="' + o.k + '">' +
+          '<span class="ltr">' + o.k + '</span><span class="txt">' + wordSpans('o' + q.n + ':' + o.k, o.t) + '</span>' +
+          '<button class="xbtn" data-q="' + q.n + '" data-k="' + o.k + '" title="Exclude this choice (click again to bring it back)">✕</button>' +
+        '</li>';
+      }).join('') + '</ul>' +
+      '<div class="qfoot">' +
+        '<button class="btn check" hidden>Check answer</button>' +
+        '<button class="btn why" data-q="' + q.n + '">Why ? (Google)</button>' +
+        '<button class="btn rep" data-q="' + q.n + '">Wrong answer? send the file name + no. + the correct answer</button>' +
+        '<span class="verdict"></span>' +
+      '</div>' +
+      ansLead(q) +
+      '<div class="note" hidden><b>Note (from the PDF):</b> <span class="ntxt">' + wordSpans('n' + q.n, q.expl.join(' ')) + '</span></div>' +
+      aiBlock(q) +
+      '<div class="lockedmsg">This answer is finished and locked. To change it, use the <b>↺</b> button on the right — “remove your answers and start again”.</div>' +
+    '</section>';
+  }
+
+  /* the lead line of the example file : "the answer: B. Idiopathic Pulmonary Fibrosis" */
+  function ansLead(q) {
+    var txt = q.correct.map(function (k) {
+      var o = q.opts.filter(function (x) { return x.k === k; })[0];
+      return k + '. ' + (o ? o.t : '');
+    }).join(' | ');
+    return '<div class="anslead" hidden><b>the answer:</b> ' + wordSpans('a' + q.n, txt) +
+           '<span class="alnote">(the letters are shuffled on screen \u2014 the file line below shows the original letters)</span></div>';
+  }
+
+  /* ---------- AI notes : appear only after the answer is locked ----------
+     layout copied from your example file : AI note (points) -> usMLE / PLAB notes
+     -> mnemonic -> from the file -> the verbatim lines of the file.
+     every word of the notes is clickable to highlight, like the rest of the file */
+  function rich(key, text) {
+    var out = '', bold = false, ti = 0;
+    String(text).split(/(<b>|<\/b>)/).forEach(function (part) {
+      if (part === '<b>') { bold = true; return; }
+      if (part === '</b>') { bold = false; return; }
+      if (!part) return;
+      part.split(/(\s+)/).forEach(function (w) {
+        if (/^\s+$/.test(w)) { out += w; return; }
+        out += '<span class="w1' + (bold ? ' kwb' : '') + '" data-q="' + key + '" data-t="' + (ti++) + '">' + esc(w) + '</span>';
+      });
+    });
+    return out;
+  }
+  function pts(key, arr, cls) {
+    return '<ul class="' + (cls || 'apts') + '">' + arr.map(function (t, i) {
+      return '<li class="apt">' + rich(key + ':' + i, t) + '</li>';
+    }).join('') + '</ul>';
+  }
+  function aiBlock(q) {
+    var a = q.ai || {};
+    if (!a.why || !a.why.length) return '';
+    var h = '<div class="ainote" hidden><b>\uD83E\uDD16 AI note:</b>' + pts('w' + q.n, a.why);
+    if (a.notes && a.notes.length) {
+      h += '<div class="wnotes"><div class="wsub">usMLE \u00b7 PLAB \u00b7 important notes</div>' +
+           pts('x' + q.n, a.notes, 'wul tips') + '</div>';
+    }
+    if (a.mnem) h += '<div class="wmnem"><b>\uD83D\uDCA1 mnemonic</b><span class="mntxt">' + rich('m' + q.n, a.mnem) + '</span></div>';
+    var pdfNote = (q.expl || []).join(' ');
+    if (a.fileNote && a.fileNote !== pdfNote) h += '<div class="wfile">from the file: ' + esc(a.fileNote) + '</div>';
+    if (a.lines && a.lines.length) {
+      h += '<div class="flblock"><b>\uD83D\uDCC4 the lines of the file (verbatim)</b>' +
+           '<div class="flhint">as printed in the PDF \u2014 the choice letters there may differ from the shuffled letters on screen</div>' +
+           '<div class="flist2">' +
+           a.lines.map(function (l) {
+             return '<div class="fli2"><span class="flp">' + esc(l.p) + '</span><span class="fltxt2">' + esc(l.t) + '</span></div>';
+           }).join('') + '</div></div>';
+    }
+    return h + '</div>';
+  }
+
+  /* ---------- highlight marks ---------- */
+  function applyMarks() {
+    Object.keys(S.marks).forEach(function (n) {
+      (S.marks[n] || []).forEach(function (i) {
+        var sp = $('.w1[data-q="' + n + '"][data-t="' + i + '"]');
+        if (sp) sp.classList.add('mk');
+      });
+    });
+  }
+  function toggleMark(sp) {
+    var n = sp.getAttribute('data-q'), i = +sp.getAttribute('data-t');
+    var arr = S.marks[n] || (S.marks[n] = []);
+    var at = arr.indexOf(i);
+    if (at < 0) { arr.push(i); sp.classList.add('mk'); SND.hl(); }
+    else { arr.splice(at, 1); sp.classList.remove('mk'); SND.unhl(); }
+    save();
+  }
+
+  /* ---------- excludes ---------- */
+  function applyExcludes() {
+    $$('.opt').forEach(function (el) {
+      var n = +el.getAttribute('data-q'), k = el.getAttribute('data-k');
+      var on = exSet(n).indexOf(k) >= 0;
+      el.classList.toggle('ex', on);
+      var b = $('.xbtn', el);
+      if (b) { b.textContent = on ? '⤺' : '✕'; b.title = on ? 'Un-exclude this choice (bring it back)' : 'Exclude this choice (click again to bring it back)'; }
+    });
+  }
+  function toggleEx(el) {
+    var n = +el.getAttribute('data-q'), k = el.getAttribute('data-k');
+    if (ansOf(n)) { SND.blocked(); toast('Answers are locked — reset the test to change your exclusions.'); return; }
+    var arr = exSet(n), at = arr.indexOf(k);
+    if (at < 0) { arr.push(k); SND.exclude(); } else { arr.splice(at, 1); SND.unex(); }
+    save(); applyExcludes();
+  }
+
+  /* ---------- answering ---------- */
+  function isMulti(q) { return q.correct.length > 1; }
+
+  function pick(el) {
+    var n = +el.getAttribute('data-q'), k = el.getAttribute('data-k'), q = byN[n];
+    if (ansOf(n)) { SND.blocked(); toast('Locked ✔ — this answer is finished. Reset with the ↺ button if you want to start again.'); return; }
+    if (exSet(n).indexOf(k) >= 0) { SND.blocked(); toast('You excluded this choice — click its ✕ again to bring it back first.'); return; }
+    if (isMulti(q)) {
+      var pend = pending[n] || (pending[n] = []);
+      var at = pend.indexOf(k);
+      if (at < 0) { pend.push(k); el.classList.add('choosing'); } else { pend.splice(at, 1); el.classList.remove('choosing'); }
+      SND.click();
+      var box = $('.q[data-n="' + n + '"] .check');
+      if (box) { box.hidden = pend.length === 0; box.textContent = 'Check answer (' + pend.length + ' selected)'; }
+      return;
+    }
+    commit(n, [k], el);
+  }
+  var pending = {};
+
+  function commit(n, picked, el) {
+    var q = byN[n];
+    var ok = q.correct.length === picked.length && q.correct.every(function (c) { return picked.indexOf(c) >= 0; });
+    $$('.opt[data-q="' + n + '"]').forEach(function (x) { x.classList.remove('choosing'); });
+    S.ans[n] = { p: picked.slice(), ok: ok };
+    save();
+    applyAnswers();
+    buildRail(); buildIndex(); buildWrong(); syncStatus();
+    var box = $('#q' + n);
+    var anchor = el || $('.opt[data-q="' + n + '"]', box) || box;
+    var c = FX.centre(anchor);
+    if (ok) {
+      SND.correct();
+      FX.confetti(100);
+      FX.burst(c.x, c.y, 70);
+      FX.stars(c.x, c.y, 9);
+      toast('Correct ✔  Question ' + n + '  — ' + q.correct.join(', '));
+    } else {
+      SND.wrong();
+      FX.puff(c.x, c.y);
+      anchor.classList.add('shake');
+      setTimeout(function () { anchor.classList.remove('shake'); }, 420);
+      var right = q.correct.map(function (k) {
+        var o = q.opts.filter(function (x) { return x.k === k; })[0]; return k + '. ' + o.t;
+      }).join(' | ');
+      toast('Not correct ✕  Question ' + n + ' — the right answer is ' + right);
+    }
+  }
+
+  function applyAnswers() {
+    Object.keys(S.ans).forEach(function (ns) {
+      var n = +ns, a = S.ans[n], q = byN[n], sec = $('#q' + n);
+      if (!sec || !q) return;
+      $$('.opt', sec).forEach(function (el) {
+        var k = el.getAttribute('data-k');
+        var isCor = q.correct.indexOf(k) >= 0, isPick = a.p.indexOf(k) >= 0;
+        el.classList.add('locked');
+        var b = $('.xbtn', el); if (b) b.remove();
+        if (isCor && isPick) { el.classList.add('pick-ok'); tag(el, 'your answer ✔ correct'); }
+        else if (isCor && !isPick) { el.classList.add('reveal'); tag(el, 'the correct answer'); }
+        else if (!isCor && isPick) { el.classList.add('pick-no'); tag(el, 'your answer ✕'); }
+        else { el.classList.add('dim'); }
+      });
+      var v = $('.verdict', sec);
+      if (v) {
+        if (a.ok) { v.className = 'verdict ok'; v.textContent = 'Correct ✔'; }
+        else if (a.p.length < q.correct.length && q.correct.some(function (c) { return a.p.indexOf(c) >= 0; })) {
+          v.className = 'verdict multi'; v.textContent = 'Partially correct — you missed ' + q.correct.filter(function (c) { return a.p.indexOf(c) < 0; }).join(', ');
+        } else { v.className = 'verdict no'; v.textContent = 'Wrong ✕ — the correct answer is ' + q.correct.join(', '); }
+      }
+      var note = $('.note', sec); if (note) { note.hidden = false; note.classList.add('show'); }
+      var aib = $('.ainote', sec); if (aib) { aib.hidden = false; aib.classList.add('show'); }
+      var al = $('.anslead', sec); if (al) { al.hidden = false; }
+      var lm = $('.lockedmsg', sec); if (lm) lm.classList.add('on');
+      var ck = $('.check', sec); if (ck) ck.hidden = true;
+    });
+  }
+  function tag(el, text) {
+    if ($('.tagx', el)) return;
+    var s = document.createElement('span');
+    s.className = 'tagx'; s.textContent = text;
+    el.appendChild(s);
+  }
+
+  /* =========================================================================
+     LEFT TASK BAR (question numbers)
+     ====================================================================== */
+  var rail = $('#rail');
+  function buildRail() {
+    var badCount = DATA.questions.filter(function (q) { var a = ansOf(q.n); return a && !a.ok; }).length;
+    var h = '<button id="railtoggle" title="Collapse / show the number bar">' + (S.mini ? '»' : '«') +
+      (badCount ? '<span class="rcount">' + badCount + '</span>' : '') + '</button>';
+    var lastTopic = null;
+    DATA.questions.forEach(function (q) {
+      if (lastTopic && q.topic !== lastTopic) h += '<span class="railsep" style="--sc:' + TOPIC[q.topic].color + '"></span>';
+      lastTopic = q.topic;
+      var a = ansOf(q.n);
+      var cls = 'nb' + (a ? (a.ok ? ' ok' : ' no') : '');
+      var extra = ' style="border:2px solid ' + TOPIC[q.topic].color + '"';
+      h += '<button class="' + cls + '" data-n="' + q.n + '"' + extra + ' title="Question ' + q.n + ' — ' +
+        (a ? (a.ok ? 'answered correctly' : 'wrong: your answer ' + a.p.join(',') + ' · correct ' + q.correct.join(',')) : 'not answered yet') +
+        '">' + q.n + '</button>';
+    });
+    rail.innerHTML = h;
+    rail.classList.toggle('mini', !!S.mini);
+    markCurrent();
+  }
+  function markCurrent() {
+    var best = null, bestD = 1e9;
+    $$('.q').forEach(function (sec) {
+      var d = Math.abs(sec.getBoundingClientRect().top - 90);
+      if (d < bestD) { bestD = d; best = sec; }
+    });
+    $$('.nb', rail).forEach(function (b) { b.classList.toggle('cur', best && +b.getAttribute('data-n') === +best.getAttribute('data-n')); });
+  }
+  function goTo(n, fromIdx) {
+    var sec = $('#q' + n); if (!sec) return;
+    SND.jump();
+    sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    sec.classList.add('hit');
+    setTimeout(function () { sec.classList.remove('hit'); }, 1100);
+    markCurrent();
+  }
+
+  /* =========================================================================
+     RIGHT SIDE : index · search · reset · mistakes tray
+     ====================================================================== */
+  var idxPanel = $('#idxpanel'), searchPanel = $('#searchpanel'), wrongPanel = $('#wrongpanel');
+  var openPanel = null;
+  function togglePanel(which, btn) {
+    if (openPanel === which) { closePanels(true); return; }
+    closePanels(false);
+    var p = which === 'idx' ? idxPanel : which === 'search' ? searchPanel : wrongPanel;
+    p.classList.add('show'); openPanel = which; SND.open();
+  }
+  function closePanels(sound) {
+    if (!openPanel) return;
+    idxPanel.classList.remove('show'); searchPanel.classList.remove('show'); wrongPanel.classList.remove('show');
+    openPanel = null; if (sound) SND.close();
+  }
+
+  function buildIndex() {
+    var h = '<h4>Index — click to jump</h4>';
+    DATA.cases.forEach(function (c) {
+      h += '<div class="grp" style="--cl:' + c.color + '">' + esc(c.name) + '</div>';
+      DATA.questions.filter(function (q) { return q.topic === c.id; }).forEach(function (q) {
+        var a = ansOf(q.n);
+        h += '<button class="qrow' + (a ? (a.ok ? ' st-ok' : ' st-no') : '') + '" data-n="' + q.n + '">' +
+          '<span class="n" style="color:' + (a ? (a.ok ? '#16A34A' : '#C2261F') : c.color) + '">' + q.n + '</span>' +
+          '<span>' + esc(q.q) + '</span></button>';
+      });
+    });
+    idxPanel.innerHTML = h;
+  }
+
+  function buildWrong() {
+    var bad = DATA.questions.filter(function (q) { var a = ansOf(q.n); return a && !a.ok; });
+    $('#wcount').textContent = bad.length;
+    $('#wcount').style.display = bad.length ? 'flex' : 'none';
+    var h = '<h4>Your mistakes (' + bad.length + ')</h4>';
+    if (!bad.length) {
+      h += '<div class="empty">Nothing here yet. Every question you get wrong is parked in this little tray (black numbers) so you can fly back to it anywhere in the page.</div>';
+    } else {
+      bad.forEach(function (q) {
+        var a = ansOf(q.n);
+        h += '<button class="wrow" data-n="' + q.n + '" title="' + esc(q.q) + '">' +
+          '<span class="wnum">' + q.n + '</span>' +
+          '<span><b>' + esc(q.q.length > 46 ? q.q.slice(0, 44) + '…' : q.q) + '</b><br>' +
+          '<span style="font-size:11.4px;color:#6E7887">your answer: ' + a.p.join(', ') + ' — correct: ' + q.correct.join(', ') + '</span></span></button>';
+      });
+    }
+    wrongPanel.innerHTML = h;
+  }
+
+  function buildSearch() {
+    var h = '<h4>Search / keyword filter</h4>' +
+      '<div class="searchhint">Pick a keyword group (or type your own word) — the file then shows <b>only</b> the questions whose <b>text, correct answer or note</b> contains it. Click the same chip again to bring everything back.</div>' +
+      '<input id="sinput" placeholder="type any word, e.g. honeycomb" value="' + esc(S.text || '') + '">';
+    DATA.keywords.forEach(function (k, i) {
+      var c = countKw(k);
+      h += '<button class="kw' + (S.filter === i ? ' on' : '') + '" data-k="' + i + '">' +
+        '<span>' + esc(k.label) + '</span><span class="cnt">' + c + '</span></button>';
+    });
+    searchPanel.innerHTML = h;
+  }
+  /* what the keyword filter looks at : the question text, the CORRECT answer(s)
+     and the note of the question  (never the wrong choices) */
+  function qBlob(q) {
+    var right = q.opts.filter(function (o) { return q.correct.indexOf(o.k) >= 0; })
+                      .map(function (o) { return o.t; }).join(' ');
+    return norm(q.q + ' ' + right + ' ' + (q.expl || []).join(' '));
+  }
+  function matchTerms(q, terms) {
+    var b = qBlob(q);
+    return terms.some(function (t) { return b.indexOf(norm(t)) >= 0; });
+  }
+  function matched(force) {
+    var i = (force === undefined ? S.filter : force);
+    if (i != null && DATA.keywords[i]) return DATA.questions.filter(function (q) { return matchTerms(q, DATA.keywords[i].terms); });
+    if (S.text) {
+      var t = norm(S.text).split(' ').filter(Boolean);
+      return DATA.questions.filter(function (q) { var b = qBlob(q); return t.every(function (w) { return b.indexOf(w) >= 0; }); });
+    }
+    return null;                                   /* null = no filter */
+  }
+  function countKw(k) { return DATA.questions.filter(function (q) { return matchTerms(q, k.terms); }).length; }
+
+  function applyFilter(silent) {
+    var m = matched();
+    var ids = m ? m.map(function (q) { return q.n; }) : null;
+    $$('.q').forEach(function (sec) {
+      var on = !ids || ids.indexOf(+sec.getAttribute('data-n')) >= 0;
+      sec.style.display = on ? '' : 'none';
+    });
+    DATA.cases.forEach(function (c) {
+      var any = !ids || DATA.questions.some(function (q) { return q.topic === c.id && ids.indexOf(q.n) >= 0; });
+      var el = $('#case-' + c.id); if (el) el.style.display = any ? '' : 'none';
+    });
+    $$('.nb', rail).forEach(function (b) {
+      var n = +b.getAttribute('data-n'), inFilter = !ids || ids.indexOf(n) >= 0;
+      var a = ansOf(n);
+      /* answered numbers stay visible (so nothing is "lost"), they just fade when out of the filter */
+      b.classList.toggle('hid', !inFilter);
+      b.style.display = (!inFilter && !a) ? 'none' : '';
+    });
+    var bar = $('#filterbar');
+    if (ids) {
+      var label = (S.filter != null && DATA.keywords[S.filter]) ? DATA.keywords[S.filter].label : ('“' + S.text + '”');
+      bar.innerHTML = '<span>Filter: ' + esc(label) + ' → ' + ids.length + ' question' + (ids.length === 1 ? '' : 's') + '</span><button id="clrfilter">✕ show all</button>';
+      bar.classList.add('show');
+    } else { bar.classList.remove('show'); bar.innerHTML = ''; }
+    if (!silent) markCurrent();
+  }
+
+  /* =========================================================================
+     WHY / REPORT
+     ====================================================================== */
+  /* the case scenario card a question belongs to (name + its bullets), verbatim from the PDF */
+  function caseBlock(q) {
+    var c = DATA.cases.filter(function (x) { return x.id === q.topic; })[0];
+    if (!c) return '';
+    return c.name + '\n' + c.bullets.map(function (b) { return '\u2022 ' + b; }).join('\n');
+  }
+  /* Why -> the WHOLE case + the question + its choices go to Google and to the clipboard */
+  function whyLink(q) {
+    var txt = caseBlock(q) + '\n\nQ' + q.n + ': ' + q.q + '\n' +
+              q.opts.map(function (o) { return o.k + '. ' + o.t; }).join('\n');
+    return { txt: txt, url: 'https://www.google.com/search?q=' + encodeURIComponent(txt) };
+  }
+  function reportText(q) {
+    var a = ansOf(q.n);
+    return 'File name: ' + FILE +
+      '\nQuestion number: ' + q.n +
+      '\nCase: ' + caseBlock(q).split('\n').join(' / ') +
+      '\nQuestion: ' + q.q +
+      '\nChoices:\n' + q.opts.map(function (o) { return o.k + '. ' + o.t; }).join('\n') +
+      '\nMy answer: ' + (a ? a.p.join(', ') : '(not answered)') +
+      '\nWrong answer / correction: ' + q.correct.join(', ') + (a && a.ok ? ' (the file says mine was right — I still want to ask)' : '') +
+      '\nWhy ?: ' + (q.expl.join(' ') || '—');
+  }
+  function openLink(url, what) {
+    var w = null;
+    try { w = window.open(url, '_blank', 'noopener'); } catch (e) { w = null; }
+    if (!w) {
+      copy(url);
+      toast('Pop-up blocked here — ' + what + ' link copied to the clipboard: ' + url.slice(0, 74) + '…', 6000);
+    }
+    return !!w;
+  }
+  function copy(text) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text); return true; }
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* =========================================================================
+     TOAST + STATUS
+     ====================================================================== */
+  var toastEl = $('#toast'), toastT = 0;
+  function toast(msg, ms) {
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { toastEl.classList.remove('show'); }, ms || 3000);
+  }
+  function syncStatus() {
+    var done = Object.keys(S.ans).length;
+    var okc = DATA.questions.filter(function (q) { var a = ansOf(q.n); return a && a.ok; }).length;
+    $('#statnum').innerHTML = 'Progress <b class="num">' + done + '</b><span class="den">/' + DATA.questions.length + '</span> answered · <b class="num">' + okc + '</b> correct';
+    $('#statfile').textContent = '· ' + FILE;
+  }
+
+  /* =========================================================================
+     EVENTS
+     ====================================================================== */
+  var lastHoverEl = null;
+  document.addEventListener('mouseover', function (e) {
+    var t = e.target;
+    var hit = t.closest ? t.closest('.opt,.nb,.btn,.rbtn,.kw,.wrow,.qrow,#sndbtn,.xbtn,.w1,.panel') : null;
+    var key = hit && hit.classList.contains('opt') && t.closest('.xbtn') ? t.closest('.xbtn') : hit;
+    if (key && key !== lastHoverEl) { lastHoverEl = key; SND.hover(); }
+    if (!hit) lastHoverEl = null;
+  }, true);
+
+  ['pointerdown', 'mousemove', 'keydown', 'touchstart'].forEach(function (ev) {
+    document.addEventListener(ev, function () { SND.unlock(); }, { once: true, passive: true });
+  });
+
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    /* exclude button */
+    var x = t.closest('.xbtn');
+    if (x) { e.stopPropagation(); toggleEx(x.closest('.opt')); return; }
+    /* a word inside a choice : highlight it once the question is finished, or with Shift / Alt held;
+       a plain click before answering still means "this is my answer" */
+    var w = t.closest('.w1');
+    var o = t.closest('.opt');
+    if (w && o) {
+      var qn = +o.getAttribute('data-q');
+      if (ansOf(qn) || e.shiftKey || e.altKey) { toggleMark(w); return; }
+    } else if (w) { toggleMark(w); return; }
+    /* choice */
+    if (o) { pick(o); return; }
+    /* check (multi-answer questions) */
+    var ck = t.closest('.check');
+    if (ck) {
+      var n = +ck.closest('.q').getAttribute('data-n');
+      var sel = (pending[n] || []).slice();
+      if (sel.length) { commit(n, sel, $('.opt[data-q="' + n + '"][data-k="' + sel[0] + '"]')); }
+      return;
+    }
+    /* why */
+    var wh = t.closest('.why');
+    if (wh) {
+      var q = byN[+wh.getAttribute('data-q')], L = whyLink(q);
+      copy(L.txt); SND.why();
+      if (openLink(L.url, 'Google')) toast('The whole case + the question + its choices were copied — opening Google with the same text…', 4200);
+      return;
+    }
+    /* report */
+    var rp = t.closest('.rep');
+    if (rp) {
+      var qr = byN[+rp.getAttribute('data-q')];
+      var okc = copy(reportText(qr)); SND.copy();
+      if (openLink(DATA.report, 'the anonymous message')) {
+        toast(okc ? 'The file name, question number and the correction are copied — paste them in the anonymous box.' : 'Opening the anonymous message box…', 4200);
+      }
+      return;
+    }
+    /* number boxes */
+    var nb = t.closest('.nb');
+    if (nb) { goTo(+nb.getAttribute('data-n')); return; }
+    if (t.closest('#railtoggle')) { S.mini = !S.mini; save(); rail.classList.toggle('mini', S.mini); $('#railtoggle').textContent = S.mini ? '»' : '«'; SND.click(); return; }
+    /* right side icons */
+    if (t.closest('#idxbtn')) { SND.click(); togglePanel('idx'); return; }
+    if (t.closest('#searchbtn')) { SND.click(); togglePanel('search'); return; }
+    if (t.closest('#wrongbtn')) { SND.click(); togglePanel('wrong'); return; }
+    if (t.closest('#clrfilter')) {
+      S.filter = null; S.text = ''; save(); SND.clearf();
+      var inp = $('#sinput'); if (inp) inp.value = '';
+      buildSearch(); applyFilter(); return;
+    }
+    /* reset */
+    var rb = t.closest('#resetbtn');
+    if (rb) {
+      if (!rb.classList.contains('armed')) {
+        rb.classList.add('armed'); rb.textContent = '✓';
+        rb.style.boxShadow = '0 0 0 3px #FFD21F, 0 0 0 7px rgba(255,210,31,.3)';
+        SND.armed();
+        toast('Click the ✓ once more to erase every answer, highlight and exclusion.', 3600);
+        setTimeout(function () {
+          if (rb.classList.contains('armed')) { rb.classList.remove('armed'); rb.textContent = '↺'; rb.style.boxShadow = ''; }
+        }, 4200);
+        return;
+      }
+      rb.classList.remove('armed'); rb.textContent = '↺'; rb.style.boxShadow = '';
+      S.filter = null; S.text = ''; S.ans = {}; S.ex = {}; S.marks = {}; pending = {};
+      save(); SND.reset(); render(); applyFilter(true);
+      toast('Fresh start ✔  All answers, highlights and exclusions were removed.', 3200);
+      FX.burst(innerWidth / 2, 120, 40, ['#FFD21F', '#00B4D8', '#7C4DFF']);
+      return;
+    }
+    /* index / mistakes rows */
+    var row = t.closest('#idxpanel .qrow, #wrongpanel .wrow');
+    if (row) { goTo(+row.getAttribute('data-n')); if (openPanel === 'wrong') closePanels(false); return; }
+    /* keyword chip */
+    var kw = t.closest('.kw');
+    if (kw) {
+      var i = +kw.getAttribute('data-k');
+      S.filter = (S.filter === i) ? null : i; S.text = '';
+      var inp2 = $('#sinput'); if (inp2) inp2.value = '';
+      save(); SND.filter(); buildSearch(); applyFilter();
+      if (S.filter != null) {
+        var m = matched();
+        toast('Showing ' + m.length + ' question' + (m.length === 1 ? '' : 's') + ' for “' + DATA.keywords[i].label + '”. Click the chip again to show everything.', 4200);
+      } else { toast('Filter removed — all questions are back.', 2600); }
+      return;
+    }
+    /* sound toggle */
+    if (t.closest('#sndbtn')) {
+      S.sound = !S.sound; SND.set(S.sound); save();
+      var b = $('#sndbtn'); b.classList.toggle('off', !S.sound); b.textContent = S.sound ? 'sounds: on' : 'sounds: off';
+      if (S.sound) SND.click();
+      return;
+    }
+    /* click anywhere else = soft click */
+    if (t.closest('#page')) SND.click();
+  });
+
+  /* live typing in the search box */
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id === 'sinput') {
+      S.text = e.target.value; S.filter = null; save();
+      buildSearch();
+      var inp = $('#sinput'); if (inp) { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+      applyFilter(true);
+    }
+  });
+
+  /* scroll spy for the number bar (no animation, only highlight) */
+  var st = 0;
+  addEventListener('scroll', function () {
+    var t = Date.now(); if (t - st < 110) return; st = t; markCurrent();
+  }, { passive: true });
+
+  /* keyboard: 1-9 / a-d answer the question under the cursor, esc closes panels */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closePanels(true); return; }
+    var sec = $('.q.cur') || null;
+    if (!sec) {
+      var best = null, bd = 1e9;
+      $$('.q').forEach(function (s2) { var d = Math.abs(s2.getBoundingClientRect().top - 120); if (d < bd) { bd = d; best = s2; } });
+      sec = best;
+    }
+    if (!sec || $('#sinput') === document.activeElement) return;
+    var k = e.key.toUpperCase();
+    if ('ABCD'.indexOf(k) >= 0) { var el = $('.opt[data-q="' + sec.getAttribute('data-n') + '"][data-k="' + k + '"]'); if (el) pick(el); }
+  });
+
+  /* =========================================================================
+     GO
+     ====================================================================== */
+  function boot() {
+    render();
+    applyFilter(true);
+    var b = $('#sndbtn');
+    b.classList.toggle('off', !S.sound); b.textContent = S.sound ? 'sounds: on' : 'sounds: off';
+    SND.set(S.sound);
+    if (Object.keys(S.ans).length) toast('Welcome back — your answers were restored.', 2600);
+    else toast('Tap any choice to answer · click any word (question, answers, notes) to highlight it · Shift+click highlights inside a choice before answering · ↺ restarts the test.', 6400);
+  }
+  boot();
+})();
+
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fc1edacab7b6c4',t:'MTc5MDE5MzQ2OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
